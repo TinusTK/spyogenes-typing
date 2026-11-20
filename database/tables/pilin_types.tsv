@@ -1,0 +1,103 @@
+# Source: PubMLST, 'Rules-based assignment of emm and pilin genotypes for group A
+# streptococci' (Feb 2024), dev.pubmlst.org/static/organisms/streptococcus-pyogenes/
+# Guide_emm_pilin_genotypes_Feb2024.pdf. Curated by hand; never downloaded.
+# Pilin type = unique pair of pilA_nt80 and pilB_nt80 clusters (page 14),
+# with its FCT-region form. Empty pilA_nt80 = no pilA (FCT-9).
+pilin_type	pilA_nt80	pilB_nt80	fct_form
+pil001	nt80_7	nt80_39	FCT-2
+pil002	nt80_5	nt80_11	FCT-6
+pil003	nt80_14	nt80_35	FCT-3
+pil004	nt80_1	nt80_1	FCT-5
+pil005	nt80_18	nt80_33	FCT-3
+pil006	nt80_4	nt80_25	FCT-1
+pil007		nt80_16	FCT-9
+pil008		nt80_19	FCT-9
+pil009	nt80_6	nt80_32	FCT-4
+pil010		nt80_6	FCT-9
+pil011	nt80_13	nt80_27	FCT-4
+pil012	nt80_8	nt80_38	FCT-4
+pil013	nt80_10	nt80_29	FCT-4
+pil014	nt80_11	nt80_36	FCT-4
+pil015	nt80_9	nt80_35	FCT-4
+pil016	nt80_1	nt80_4	FCT-5
+pil018	nt80_17	nt80_36	FCT-3
+pil019		nt80_12	FCT-9
+pil020		nt80_10	FCT-9
+pil021	nt80_10	nt80_31	FCT-4
+pil022	nt80_2	nt80_0	FCT-10
+pil023	nt80_3	nt80_21	FCT-1
+pil024	nt80_12	nt80_38	FCT-3
+pil025		nt80_14	FCT-9
+pil027	nt80_11	nt80_33	FCT-4
+pil028	nt80_13	nt80_34	FCT-4
+pil033	nt80_16	nt80_37	FCT-3
+pil036	nt80_13	nt80_31	FCT-3
+pil038	nt80_4	nt80_23	FCT-1
+pil039	nt80_6	nt80_30	FCT-4
+pil040	nt80_13	nt80_37	FCT-4
+pil042	nt80_8	nt80_35	FCT-4
+pil043	nt80_12	nt80_37	FCT-3
+pil044	nt80_8	nt80_33	FCT-4
+pil045	nt80_13	nt80_38	FCT-4
+pil046	nt80_8	nt80_30	FCT-4
+pil048	nt80_0	nt80_3	FCT-5
+pil049	nt80_11	nt80_38	FCT-4
+pil052	nt80_16	nt80_36	FCT-3
+pil053	nt80_12	nt80_36	FCT-3
+pil054	nt80_3	nt80_24	FCT-1
+pil055		nt80_15	FCT-9
+pil056	nt80_14	nt80_34	FCT-3
+pil057		nt80_17	FCT-9
+pil058		nt80_9	FCT-9
+pil060	nt80_1	nt80_2	FCT-5
+pil063	nt80_4	nt80_24	FCT-1
+pil064	nt80_12	nt80_35	FCT-3
+pil065		nt80_7	FCT-9
+pil066	nt80_9	nt80_38	FCT-4
+pil068	nt80_3	nt80_25	FCT-1
+pil070	nt80_12	nt80_34	FCT-3
+pil072	nt80_14	nt80_38	FCT-3
+pil074	nt80_14	nt80_32	FCT-3
+pil075		nt80_8	FCT-9
+pil076	nt80_4	nt80_21	FCT-1
+pil077	nt80_6	nt80_29	FCT-4
+pil078	nt80_10	nt80_33	FCT-4
+pil080	nt80_14	nt80_36	FCT-3
+pil081	nt80_1	nt80_3	FCT-5
+pil083	nt80_17	nt80_37	FCT-3
+pil084	nt80_9	nt80_34	FCT-4
+pil085	nt80_9	nt80_28	FCT-4
+pil087	nt80_8	nt80_34	FCT-4
+pil088	nt80_2	nt80_5	FCT-10
+pil089	nt80_9	nt80_30	FCT-4
+pil090	nt80_9	nt80_31	FCT-4
+pil092	nt80_8	nt80_28	FCT-4
+pil094	nt80_14	nt80_30	FCT-3
+pil095	nt80_4	nt80_26	FCT-1
+pil096	nt80_13	nt80_35	FCT-4
+pil098	nt80_15	nt80_34	FCT-3
+pil099	nt80_15	nt80_36	FCT-3
+pil100	nt80_15	nt80_35	FCT-3
+pil101	nt80_17	nt80_29	FCT-3
+pil102	nt80_0	nt80_4	FCT-5
+pil104	nt80_8	nt80_27	FCT-4
+pil105	nt80_6	nt80_36	FCT-4
+pil106	nt80_6	nt80_33	FCT-4
+pil107	nt80_6	nt80_28	FCT-4
+pil110	nt80_4	nt80_20	FCT-1
+pil111	nt80_15	nt80_32	FCT-3
+pil114	nt80_8	nt80_31	FCT-4
+pil115	nt80_3	nt80_22	FCT-1
+pil116	nt80_12	nt80_33	FCT-3
+pil117	nt80_18	nt80_28	FCT-3
+pil122	nt80_14	nt80_28	FCT-3
+pil165		nt80_18	FCT-9
+pil177	nt80_9	nt80_33	FCT-4
+pil178	nt80_17	nt80_35	FCT-3
+pil183	nt80_9	nt80_37	FCT-4
+pil186	nt80_12	nt80_31	FCT-3
+pil217	nt80_12	nt80_28	FCT-3
+pil222	nt80_10	nt80_32	FCT-4
+pil225	nt80_17	nt80_34	FCT-3
+pil232	nt80_0	nt80_2	FCT-5
+pil238		nt80_13	FCT-9

@@ -1,0 +1,16 @@
+# Source: PubMLST, 'Rules-based assignment of emm and pilin genotypes for group A
+# streptococci' (Feb 2024), dev.pubmlst.org/static/organisms/streptococcus-pyogenes/
+# Guide_emm_pilin_genotypes_Feb2024.pdf. Curated by hand; never downloaded.
+# FCT-region form from the hit combination (page 15): regulator marker
+# (rofA or nra; empty = neither found) plus the pilin loci found.
+# pilA10 = a pilA5 allele in pilA nt80_2 (see pilin_nt80.tsv).
+fct_form	regulator	pilin_loci
+FCT-1	rofA	pilA1+pilB1
+FCT-2	rofA	pilA2+pilB2
+FCT-3	nra	pilA34+pilB34
+FCT-4	rofA	pilA34+pilB34
+FCT-3/4		pilA34+pilB34
+FCT-5	rofA	pilA5+pilB5
+FCT-6	rofA	pilA6+pilB6
+FCT-9	rofA	pilB9
+FCT-10	rofA	pilA10+pilB10
