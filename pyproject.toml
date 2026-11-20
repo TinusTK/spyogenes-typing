@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spyogenes-typing"
+version = "1.0.0.dev0"
+description = "Streptococcus pyogenes typing from PubMLST: emm, emm cluster and pattern, MLST, M1UK, superantigens, resistance and FCT"
+readme = "README.md"
+authors = [{name = "TinusTK"}]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+spyogenes-typing = "spyogenes_typing:main"
+
+# The database travels with a pip install: database/ is installed beside the
+# module as the data folder "spyogenes_typing_database", where find_database() looks.
+[tool.setuptools]
+package-dir = {"" = "tool", "spyogenes_typing_database" = "database"}
+# spyogenes_typing_setup (own PubMLST key) and spyogenes_typing_update (the
+# database updater it runs) are command-line only; the Galaxy bundle leaves them out.
+py-modules = ["spyogenes_typing", "spyogenes_typing_setup", "spyogenes_typing_update"]
+packages = ["spyogenes_typing_database"]
+
+[tool.setuptools.package-data]
+spyogenes_typing_database = ["**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
