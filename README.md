@@ -223,19 +223,23 @@ PubMLST records no pilin type, superantigen, resistance or M1UK value for
 these isolates, so those columns are not checked here at all: the pilin type
 is checked against the worked examples in the typing guide (MGAS6180 =
 pil028, isolate 6424 = pil088) and M1UK by the test suite, which writes the
-published SNPs into a genome and expects M1UK back. FCT-9 and FCT-3/4 have no
-public genome and are untested.
+published SNPs into a genome and expects M1UK back.
+
+**All nine FCT forms are exercised, but not all of them against PubMLST.**
+FCT-1 to FCT-6 are the 15 that agree above. FCT-9 and FCT-10 are called here
+too, on isolates PubMLST records no FCT value for, so they count as coverage
+rather than agreement. FCT-3/4 is not a form a genome carries at all: it is
+the answer when pilA34 and pilB34 are found but neither regulator is, so the
+test suite covers it by masking rofA out of an FCT-4 genome.
 
 **Form coverage is recorded separately**, because agreement and coverage are
 different things. PubMLST has curated an FCT-region form for only 134
 isolates, none with contigs, so for some forms there is nothing to compare
 against. All 500 complete *S. pyogenes* genomes in NCBI were typed in one run
 instead ([sweep_500_genomes.tsv](validation/sweep_500_genomes.tsv)): that
-found **45 distinct pilin types** and every form except FCT-10 and FCT-3/4,
-including 86 FCT-9 genomes, three of which are kept as coverage cases. FCT-3/4
-is not a form a genome carries — it is the answer when the regulator is
-missing — so the test suite covers it by masking rofA out of an FCT-4 genome.
-None of that is counted in the 106.
+found **45 distinct pilin types** and seven of the nine forms, including 86
+FCT-9 genomes, three of which are kept here as coverage cases. No FCT-10 came
+up in those 500, and FCT-3/4 could not. None of that is counted in the 106.
 
 [VALIDATION.md](validation/VALIDATION.md) sets out all of this, including
 what each difference turned out to be and what the figure does and does not

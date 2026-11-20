@@ -37,7 +37,9 @@ The unit is a single field of a single genome, not a genome: 22 genomes with up 
 
 **Both sides come from PubMLST**, though from different parts of it: the tool types against PubMLST's sequence definitions, and the expected values are PubMLST's curated isolate records. Agreement therefore shows the tool reproduces PubMLST's own assignments, including which hit is emm and which FCT form the loci make. It is not independent evidence that those assignments are biologically right.
 
-**Not checked here at all:** the superantigen, resistance-gene, M1UK lineage, species-check and warning columns, because PubMLST's isolate records hold nothing to compare them with. M1UK is covered by the test suite instead, which writes the published SNPs into a genome and expects M1UK back. Of the nine FCT forms, FCT-9 and FCT-3/4 are not covered: no public genome was found for them.
+**Not checked here at all:** the superantigen, resistance-gene, M1UK lineage, species-check and warning columns, because PubMLST's isolate records hold nothing to compare them with. M1UK is covered by the test suite instead, which writes the published SNPs into a genome and expects M1UK back.
+
+**All nine FCT forms are exercised, but not all against PubMLST.** FCT-1 to FCT-6 are the ones that agree above. FCT-9 and FCT-10 are called on isolates PubMLST records no FCT form for, so they count as coverage rather than agreement, and FCT-9 has three further genomes of its own below. FCT-3/4 is not a form a genome carries: it is the answer when pilA34 and pilB34 are found but neither regulator is, which the test suite covers by masking rofA out of an FCT-4 genome.
 
 **The sample leans on reference strains:** 15 finished genomes and only 7 draft assemblies, so fragmented real-world assemblies are under-represented. The test suite covers a contig break through emm separately.
 
