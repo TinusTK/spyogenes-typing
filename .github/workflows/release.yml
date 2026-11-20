@@ -1,0 +1,72 @@
+name: Release
+
+# Push a tag such as v1.0.0 (only after Tests is green on main). This:
+#   1. bundles the tool with the database,
+#   2. lints it and runs the Galaxy tool tests in the biocontainer,
+#   3. creates a GitHub release with the bundle attached,
+#   4. publishes to the Galaxy Tool Shed (if the TOOLSHED_API_KEY secret is set).
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check the database is populated
+        run: |
+          DBV=$(head -1 database/VERSION.txt)
+          if [ -z "$DBV" ] || [ ! -f database/blast/spyogenes.nsq ]; then
+            echo "::error::database/ is empty - merge a database update before releasing"; exit 1
+          fi
+          echo "DBV=$DBV" >> "$GITHUB_ENV"
+
+      - name: Bundle tool + database
+        run: bash scripts/bundle_tool.sh build
+
+      - name: Lint and run the Galaxy tool tests in the container
+        run: |
+          pip install planemo
+          planemo lint --fail_level warn build/spyogenes_typing
+          planemo test --biocontainers --no_dependency_resolution --no_conda_auto_init \
+            --test_output build/planemo_report.html build/spyogenes_typing
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tar -czf "spyogenes_typing-${GITHUB_REF_NAME}-${DBV}.tar.gz" -C build spyogenes_typing
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            # Release was created on the GitHub website: attach the files to it
+            gh release upload "$GITHUB_REF_NAME" *.tar.gz build/planemo_report.html --clobber
+          else
+            {
+              echo "Galaxy tool bundle with the database. Tool tests passed (report attached)."
+              echo
+              echo "Database: **$DBV**"
+            } > release_notes.md
+            gh release create "$GITHUB_REF_NAME" *.tar.gz build/planemo_report.html \
+              --title "$GITHUB_REF_NAME" --notes-file release_notes.md
+          fi
+
+      - name: Publish to the Galaxy Tool Shed
+        env:
+          TOOLSHED_API_KEY: ${{ secrets.TOOLSHED_API_KEY }}
+        run: |
+          if [ -z "$TOOLSHED_API_KEY" ]; then
+            echo "::warning::TOOLSHED_API_KEY not set - skipping Tool Shed publish"; exit 0
+          fi
+          planemo shed_update build/spyogenes_typing \
+            --shed_target toolshed \
+            --shed_key "$TOOLSHED_API_KEY" \
+            --force_repository_creation \
+            --check_diff \
+            --message "${GITHUB_REF_NAME}: database ${DBV}"

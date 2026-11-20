@@ -21,7 +21,7 @@ DB="$ROOT/database"
 rm -rf "$DEST"
 mkdir -p "$DEST/database/pubmlst/mlst" "$DEST/database/references"
 cp "$ROOT"/galaxywrapper/tool.xml "$ROOT"/galaxywrapper/.shed.yml "$ROOT"/tool/spyogenes_typing.py "$DEST"/
-[ -f "$ROOT/LICENSE" ] && cp "$ROOT/LICENSE" "$DEST"/
+if [ -f "$ROOT/LICENSE" ]; then cp "$ROOT/LICENSE" "$DEST"/; fi
 cp -r "$ROOT"/galaxywrapper/test-data "$DEST"/
 cp -r "$DB"/blast "$DB"/tables "$DEST"/database/
 cp "$DB"/pubmlst/mlst/mlst.txt "$DEST"/database/pubmlst/mlst/

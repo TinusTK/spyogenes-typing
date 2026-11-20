@@ -7,6 +7,7 @@ name = "spyogenes-typing"
 version = "1.0.0.dev0"
 description = "Streptococcus pyogenes typing from PubMLST: emm, emm cluster and pattern, MLST, M1UK, superantigens, resistance and FCT"
 readme = "README.md"
+license = {text = "MIT"}
 authors = [{name = "TinusTK"}]
 requires-python = ">=3.9"
 dependencies = []

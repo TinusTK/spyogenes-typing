@@ -1,0 +1,69 @@
+name: Tests
+
+# Kept deliberately lean (one job, only main and pull requests, code paths
+# only): CI is the final check, not the place to debug. Run `pytest` and
+# `planemo lint` locally before every push. The Galaxy tool tests
+# (planemo test, which needs a container) run in the release workflow.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tool/**"
+      - "tests/**"
+      - "scripts/**"
+      - "galaxywrapper/**"
+      - "database/**"
+      - "pyproject.toml"
+      - ".github/workflows/tests.yml"
+  pull_request:
+    paths:
+      - "tool/**"
+      - "tests/**"
+      - "scripts/**"
+      - "galaxywrapper/**"
+      - "database/**"
+      - "pyproject.toml"
+      - ".github/workflows/tests.yml"
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: pytest, pip install and Galaxy lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install BLAST+
+        run: sudo apt-get update && sudo apt-get install -y ncbi-blast+
+
+      - name: pytest
+        run: |
+          pip install pytest
+          python -m pytest -v
+
+      # The README's install route: the installed command must find its
+      # bundled database from any folder, with the source tree out of the way.
+      - name: pip install carries the database
+        run: |
+          pip install .
+          cp tests/data/MGAS6180_loci.fasta.gz "$RUNNER_TEMP/"
+          cd "$RUNNER_TEMP"
+          spyogenes-typing MGAS6180_loci.fasta.gz | tee result.tsv
+          # emm (column 3) and ST (column 9) must be called, not "-"
+          awk -F'\t' 'NR > 1 && ($3 == "-" || $9 == "-") { exit 1 }' result.tsv
+
+      # Lint the bundle, not galaxywrapper/: <required_files> lists database/*,
+      # which only sits next to tool.xml in the bundle (lint errors on no match).
+      - name: planemo lint + shed_lint (bundle)
+        run: |
+          pip install planemo
+          bash scripts/bundle_tool.sh build
+          planemo lint --fail_level warn build/spyogenes_typing
+          planemo shed_lint --tools build/spyogenes_typing || \
+            echo "::warning::shed_lint failed (expected before the first Tool Shed release)"

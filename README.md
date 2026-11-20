@@ -114,6 +114,11 @@ order: `--db`, `$SPYOGENES_TYPING_DB`, your own, the bundled one.
 Rebuild the bundled database: `python scripts/update_database.py --db database`
 (`--references` also rebuilds the NCBI parts).
 
+## Licence
+
+MIT (see `LICENSE`). The bundled PubMLST data and the curated tables keep
+the terms of their own sources, listed below.
+
 ## Sources and credits
 
 - PubMLST *S. pyogenes* typing databases (Jolley et al. 2018, Wellcome Open
