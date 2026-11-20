@@ -156,12 +156,28 @@ Database           database version
 
 **Database**
 
-PubMLST *S. pyogenes* typing data (https://pubmlst.org/spyogenes): the
-standard, freely available data, submitted up to 31 December 2024. emm data
-are curated by the CDC. Superantigen genes from NCBI RefSeq genomes; M1UK
-SNPs from Lynskey et al. 2019.
+PubMLST *S. pyogenes* typing data (https://pubmlst.org/organisms/streptococcus-pyogenes):
+the standard, freely available data, **submitted up to 31 December 2024**,
+which is the part PubMLST gives without an account. emm data are curated by
+the CDC. Superantigen genes from NCBI RefSeq genomes; M1UK SNPs from Lynskey
+et al. 2019. The database version is on every row of the report.
+
+**Source and documentation**
+
+https://github.com/TinusTK/spyogenes-typing, which explains every column, how
+the PubMLST rules are applied, and the validation against PubMLST's own
+isolate records. Please cite the tool and PubMLST (see Citations below).
     ]]></help>
     <citations>
+        <!-- The tool itself first: it has no DOI, so BibTeX, which Galaxy
+             renders and exports alongside the DOIs below. -->
+        <citation type="bibtex">@misc{spyogenes_typing,
+  author = {TinusTK},
+  title = {spyogenes-typing: Streptococcus pyogenes typing from PubMLST},
+  year = {2026},
+  publisher = {GitHub},
+  url = {https://github.com/TinusTK/spyogenes-typing}
+}</citation>
         <citation type="doi">10.12688/wellcomeopenres.14826.1</citation>
         <citation type="doi">10.1093/infdis/jiu260</citation>
         <citation type="doi">10.1128/mbio.00693-24</citation>
