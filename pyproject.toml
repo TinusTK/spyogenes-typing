@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spyogenes-typing"
-version = "1.0.0.dev0"
+version = "1.0.1"
 description = "Streptococcus pyogenes typing from PubMLST: emm, emm cluster and pattern, MLST, M1UK, superantigens, resistance and FCT"
 readme = "README.md"
 license = {text = "MIT"}
