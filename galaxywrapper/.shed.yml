@@ -1,0 +1,13 @@
+name: spyogenes_typing
+owner: tinustk
+description: Streptococcus pyogenes typing from PubMLST (emm, emm cluster and pattern, MLST, M1UK, superantigens, resistance, FCT)
+categories:
+  - Sequence Analysis
+type: unrestricted
+long_description: |
+  Types group A Streptococcus assemblies with PubMLST's data and PubMLST's own rules:
+  emm type and subtype (the hit next to the emmPrime marker, so emm-like genes are
+  never reported as emm), emm-like genes, emm cluster, emm pattern (measured from the
+  mga/SF markers), MLST, M1UK lineage for emm1, superantigen genes, resistance genes,
+  and the FCT-region form with pilin type. One row per assembly.
+homepage_url: https://github.com/TinusTK/spyogenes-typing

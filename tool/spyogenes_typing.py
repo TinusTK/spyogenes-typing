@@ -563,7 +563,8 @@ def emm_pattern(r, short_hits, db, o):
         mga = "mga-1" in counts or "mga-2" in counts
         if mga and not cut:
             measured = "REA"
-            r.warnings.append(f"emm pattern markers {found} fit no pattern A-E: REA")
+            extra = f"; predicted for this emm type: {pred}" if pred else ""
+            r.warnings.append(f"emm pattern markers {found} fit no pattern A-E: REA{extra}")
     if measured:
         group = "A-C" if measured in "ABC" else measured
         if predicted and group not in predicted and measured != "REA":
@@ -1056,7 +1057,8 @@ def run(o, dbpath):
             tsv(hits_fh, HITS_HEAD)
         with tempfile.TemporaryDirectory(prefix="spyogenes-typing_") as tmp:
             for i, path in enumerate(files, 1):
-                label = o.label or labels.get(path) or sample_name(path)
+                # names from --fofn (Galaxy dataset names) lose their extension too
+                label = o.label or sample_name(labels.get(path) or path)
                 Log.msg(f"[{i}/{len(files)}] {label}")
                 row, hits = type_genome(path, label, db, o, tmp)
                 tsv(out, cells(row, o))
