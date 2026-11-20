@@ -550,11 +550,26 @@ def type_emm(long_hits, short_hits, db, o):
                     r.warnings.append(f"emm type from emmL{g.best.allele} at the emm locus")
     # cluster: Sanderson-Smith 2014, as PubMLST lists it
     if r.types:
-        r.cluster = ",".join(db.clusters.get(t, "-") for t in r.types)
-        if all(t not in db.clusters for t in r.types):
-            r.cluster = "-"
+        r.cluster, cluster_warn = emm_cluster(r.types, db)
+        r.warnings += cluster_warn
     r.pattern = emm_pattern(r, short_hits, db, o)
     return r
+
+
+def emm_cluster(types, db):
+    """(cluster column, warnings) for the emm type(s) called. The guide's
+    cluster list does not cover every type, so a type it misses is said in
+    Warnings rather than left as a bare '-' that reads like a failure."""
+    cluster = ",".join(db.clusters.get(t, "-") for t in types)
+    missing = [t for t in types if t not in db.clusters]
+    warnings = []
+    if missing:
+        warnings.append("no emm cluster listed in the typing guide for "
+                        + ", ".join(f"emm{t}" for t in missing)
+                        + " (Sanderson-Smith 2014 does not cover every type)")
+    if len(missing) == len(types):
+        cluster = "-"
+    return cluster, warnings
 
 
 def marker_counts(short_hits, region):
@@ -614,8 +629,36 @@ def collapse_copies(c):
     return parts[0] if len(parts) > 1 and len(set(parts)) == 1 else c
 
 
+def mlst_warnings(st, code, loci, status):
+    """Say in Warnings why the ST is not a plain match, so the column that
+    lists everything worth checking covers MLST too (the status column alone
+    does not say which locus is at fault)."""
+    bad = lambda f: ", ".join(f"{l}({c})" for l, c in zip(loci, code) if f(c))
+    if status == PERFECT:
+        return []
+    if status == MULTICOPY:
+        where = bad(lambda c: collapse_copies(c) != c)
+        tail = "; the ST still stands" if st != "-" else ""
+        return [f"MLST MULTICOPY: identical copies of {where}{tail}"]
+    if status == NOVEL:
+        return [f"MLST NOVEL: every allele is an exact match but the combination "
+                f"{'/'.join(code)} is not a known ST"]
+    if status == MIXED:
+        return [f"MLST MIXED: more than one allele at {bad(lambda c: ',' in collapse_copies(c))}"
+                " (contamination, or two strains in one assembly)"]
+    if status == MISSING:
+        return [f"MLST MISSING: {bad(lambda c: c == '-')} not found"]
+    if status == "NONE":
+        return ["MLST NONE: no MLST locus found"]
+    near = bad(lambda c: c.startswith("~"))
+    part = bad(lambda c: c.endswith("?"))
+    bits = [x for x in (f"{near} not an exact match" if near else "",
+                        f"{part} cut by a contig end" if part else "") if x]
+    return [f"MLST {status}: " + "; ".join(bits)] if bits else [f"MLST {status}"]
+
+
 def type_mlst(long_hits, db, o):
-    """(ST, [allele call per locus], status, loci found at >= minid)."""
+    """(ST, [allele call per locus], status, loci found at >= minid, warnings)."""
     code, good = [], 0
     for locus in db.mlst_loci:
         regs = regions([h for h in long_hits if h.scheme == MLST_SCHEME and h.locus == locus])
@@ -637,7 +680,8 @@ def type_mlst(long_hits, db, o):
             good += 1
         code.append(c)
     st = db.profiles.get("/".join(collapse_copies(c) for c in code), "-")
-    return st, code, mlst_status(st, code), good
+    status = mlst_status(st, code)
+    return st, code, status, good, mlst_warnings(st, code, db.mlst_loci, status)
 
 
 def mlst_status(st, code):
@@ -811,7 +855,7 @@ def type_genome(path, label, db, o, tmp):
     Log.dbg(f"{len(long_hits)} long and {len(short_hits)} short hits")
 
     emm = type_emm(long_hits, short_hits, db, o)
-    st, code, mlst_st, good = type_mlst(long_hits, db, o)
+    st, code, mlst_st, good, mlst_warn = type_mlst(long_hits, db, o)
     m1, m1_warn = type_m1(seqs, emm, db)
     sags, sag_warn = type_superantigens(long_hits)
     res, res_warn = type_resistance(long_hits)
@@ -819,7 +863,8 @@ def type_genome(path, label, db, o, tmp):
     n = len(db.mlst_loci)
     species = ("S. pyogenes" if good >= SPECIES_LOCI
                else f"not S. pyogenes? ({good}/{n} MLST loci)")
-    warnings = emm.warnings + m1_warn + fct_warn + sag_warn + res_warn
+    warnings = (emm.warnings + mlst_warn + m1_warn + fct_warn
+                + sag_warn + res_warn)
     if good < SPECIES_LOCI:
         warnings.insert(0, f"only {good} of {n} S. pyogenes MLST loci found at "
                            f">= {o.minid:g}% identity: check the species")

@@ -62,16 +62,30 @@ spyogenes-typing MGAS5005.fasta MGAS6180.fasta Alab49.fasta > typing.tsv
 spyogenes-typing *.fasta.gz --outfile typing.tsv
 ```
 
-| Sample | emm | emm status | emmL | emmCG | emm cluster | emm pattern | ST | MLST status | M1 lineage | FCT type |
-|---|---|---|---|---|---|---|---|---|---|---|
-| MGAS5005 | emm1.0 | PERFECT | - | - | A-C3 | A | 28 | PERFECT | M1global (0 M1UK SNPs) | FCT-2 (pil001) |
-| MGAS6180 | emm28.0 | PERFECT | emmL203.4 (97.2%) | - | E4 | E | 52 | PERFECT | - | FCT-4 (pil028) |
-| Alab49 | emm53.0 | PERFECT | emmL134.2;emmL156.1 (98.9%) | - | D4 | D | 11 | PERFECT | - | FCT-3 (pil033) |
+| Sample | emm | emm status | emmL | emmCG | emm cluster | emm pattern | ST | MLST status | M1 lineage | FCT type | Warnings |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| MGAS5005 | emm1.0 | PERFECT | - | - | A-C3 | A | 28 | PERFECT | M1global (0 M1UK SNPs) | FCT-2 (pil001) | - |
+| MGAS6180 | emm28.0 | PERFECT | emmL203.4 (97.2%) | - | E4 | E | 52 | PERFECT | - | FCT-4 (pil028) | - |
+| Alab49 | emm53.0 | PERFECT | emmL134.2;emmL156.1 (98.9%) | - | D4 | D | 11 | PERFECT | - | FCT-3 (pil033) | - |
 
 Those are the headline columns; the full report has 23. `emmL` and `emmCG`
 are always there, `-` when the genome has none: an emm-like gene is listed
 as emmL and never reported as the emm type, which is what the emmPrime rule
-below settles. Here is one whole row, laid out downwards (MGAS6180):
+below settles.
+
+**Warnings is the column to read first.** Every other column can put
+something in it, so one glance tells you whether any part of the row needs
+checking; `-`, as in all three rows above, means nothing did. The text names
+the column it is about, and several are joined with `; `. Real examples:
+
+| Genome | Warnings |
+|---|---|
+| MGAS8232 | `emm pattern markers mga-2;SF1 fit no pattern A-E: REA; predicted for this emm type: A-C/D` |
+| MGAS10394 | `superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.4% id / 59% of the gene, speH 84.3% id / 98% of the gene` |
+| a genome with a locus missing | `MLST MISSING: gki(-) not found` |
+| a genome cut through emm | `emm PARTIAL: emm cut by a contig end (54% of the allele), subtype unknown` |
+
+Here is one whole row, laid out downwards (MGAS6180):
 
 | Column | Value |
 |---|---|
@@ -135,7 +149,7 @@ name in `--fofn`). Empty values are `-`.
 | Superantigens | Superantigen genes found (≥90% identity): speA, speC, speG, speH, speI, speJ, speK, speL, speM, smeZ, ssa. `(partial)` when cut by a contig end. |
 | Resistance genes | PubMLST resistance alleles, e.g. `ermB(1)`; `~1` with differences, `1?` partial. |
 | FCT type | FCT-region form and pilin type, e.g. `FCT-4 (pil028)`. The form comes from the regulator (rofA or nra) and the pilA / pilB loci found; the pilin type from the pilA and pilB nt80 clusters of exact alleles. |
-| Warnings | Anything to check, separated by `; `. |
+| Warnings | Anything to check, from any column above, separated by `; `. Covers emm (NOVEL, PARTIAL, MIXED, an emmL at the emm locus, no emmPrime), emm cluster and pattern (none listed for the type, markers that fit no pattern, measured against predicted), MLST (which locus is missing, mixed, or not exact), M1 lineage (SNP sites not found), superantigens and resistance genes (present but under the 90% calling limit), FCT (pilin not exact, no pilin type listed, hits that fit no form) and the species check. `-` means nothing needs checking. |
 | Database | The database version, e.g. `PubMLST_2026-11-20`. |
 
 ### How the calls are made

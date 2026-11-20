@@ -291,6 +291,46 @@ def test_sub_threshold_gene_hits_are_reported(tmp_path):
     assert "speA" not in row["Warnings"]
 
 
+def test_mlst_warnings_name_the_locus():
+    """Every status other than PERFECT says in Warnings which locus is at
+    fault, so the Warnings column covers MLST and not just the status word."""
+    loci = ["gki", "gtr", "murI", "mutS", "recP", "xpt", "yqiL"]
+    assert st.mlst_warnings("28", ["4"] * 7, loci, st.PERFECT) == []
+    miss = st.mlst_warnings("-", ["-"] + ["4"] * 6, loci, st.MISSING)
+    assert miss and "gki(-)" in miss[0] and "MISSING" in miss[0]
+    mixed = st.mlst_warnings("-", ["4,5"] + ["4"] * 6, loci, st.MIXED)
+    assert "gki(4,5)" in mixed[0] and "contamination" in mixed[0]
+    multi = st.mlst_warnings("28", ["4,4"] + ["4"] * 6, loci, st.MULTICOPY)
+    assert "gki(4,4)" in multi[0] and "the ST still stands" in multi[0]
+    novel = st.mlst_warnings("-", ["999"] + ["4"] * 6, loci, st.NOVEL)
+    assert "not a known ST" in novel[0]
+    part = st.mlst_warnings("-", ["~4", "5?"] + ["4"] * 5, loci, st.PARTIAL)
+    assert "gki(~4)" in part[0] and "gtr(5?)" in part[0]
+    assert st.mlst_warnings("-", ["-"] * 7, loci, "NONE")[0].startswith("MLST NONE")
+
+
+@needs_blast
+def test_emm_cluster_warning_when_the_guide_lists_none():
+    """An emm type the guide has no cluster for says so, instead of leaving
+    a bare '-' that could be read as a failure to look it up."""
+    db = st.Database(DB)
+    known = next(t for t in sorted(db.clusters) if t.isdigit())
+    unknown = next((t for t in sorted(db.patterns)
+                    if t.isdigit() and t not in db.clusters), None)
+
+    cluster, warn = st.emm_cluster([known], db)
+    assert cluster == db.clusters[known] and warn == []
+
+    if unknown is None:
+        pytest.skip("every emm type in the pattern table also has a cluster")
+    cluster, warn = st.emm_cluster([unknown], db)
+    assert cluster == "-"
+    assert warn and f"emm{unknown}" in warn[0] and "no emm cluster listed" in warn[0]
+    # one type known and one not: the column keeps the known cluster
+    cluster, warn = st.emm_cluster([known, unknown], db)
+    assert cluster == f"{db.clusters[known]},-" and warn
+
+
 @needs_blast
 def test_not_spyogenes(tmp_path):
     p = tmp_path / "x.fa"
