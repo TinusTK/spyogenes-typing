@@ -83,6 +83,7 @@ the column it is about, and several are joined with `; `. Real examples:
 | MGAS8232 | `emm pattern markers mga-2;SF1 fit no pattern A-E: REA; predicted for this emm type: A-C/D` |
 | MGAS10394 | `superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.4% id / 59% of the gene, speH 84.3% id / 98% of the gene` |
 | a genome with a locus missing | `MLST MISSING: gki(-) not found` |
+| a new emm subtype | `emm NOVEL: 1 SNP from emm63.2 (99.4%); cluster and pattern from emm63` |
 | a genome cut through emm | `emm PARTIAL: emm cut by a contig end (54% of the allele), subtype unknown` |
 
 Here is one whole row, laid out downwards (MGAS6180):

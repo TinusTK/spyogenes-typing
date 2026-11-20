@@ -92,6 +92,14 @@ def test_hit_exact_full_and_edge():
     assert not h.edge
 
 
+def test_hit_differences_in_words():
+    assert hit(nident=179).diff_text == "1 SNP"
+    # 3 bp missing from the genome: a gap in the contig, no mismatches
+    assert hit(nident=177, end=277).diff_text == "3 bp indel"
+    # 1 bp extra in the genome plus 2 mismatches
+    assert hit(alen=181, nident=178, end=281).diff_text == "2 SNPs, 1 bp indel"
+
+
 def test_call_words():
     assert st.call(hit(), 95) == st.PERFECT
     assert st.call(hit(nident=176), 95) == st.NOVEL

@@ -319,6 +319,16 @@ class Hit:
     def name(self):
         return f"{self.locus}_{self.allele}"
 
+    @property
+    def diff_text(self):
+        """Differences from the allele in words: '1 SNP', '2 SNPs, 3 bp indel'."""
+        gaps = (self.alen - (self.shi - self.slo + 1)) + (self.alen - (self.end - self.start + 1))
+        snps = self.alen - self.nident - gaps
+        parts = [f"{snps} SNP{'s' if snps != 1 else ''}"] if snps else []
+        if gaps:
+            parts.append(f"{gaps} bp indel")
+        return ", ".join(parts) or "0 SNPs"
+
 
 def run_blast(fasta, db, short, threads, outfile):
     if short:   # 19-54 bp signature markers
@@ -535,8 +545,8 @@ def type_emm(long_hits, short_hits, db, o):
                 g, c = named[0]
                 r.status = c
                 if c == NOVEL:
-                    r.warnings.append(f"emm NOVEL: nearest {emm_label(g.best)} at "
-                                      f"{g.best.pid:.1f}% identity; cluster and pattern "
+                    r.warnings.append(f"emm NOVEL: {g.best.diff_text} from {emm_label(g.best)} "
+                                      f"({g.best.pid:.1f}%); cluster and pattern "
                                       f"from emm{emm_type_of(g.best)}")
                 elif c == PARTIAL:
                     types = tied_types(g)
