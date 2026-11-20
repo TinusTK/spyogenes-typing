@@ -1,0 +1,13 @@
+# Local-only files (anything private lives in this folder)
+exceptions/
+
+# Python / build
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# planemo test output
+tool_test_output.*
