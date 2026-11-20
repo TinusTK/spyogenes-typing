@@ -202,31 +202,33 @@ checksums.
 
 **22 genomes** against database `PubMLST_2026-11-20`: 15 complete genomes
 from NCBI (including PubMLST's own worked examples MGAS6180 and Alab49) and
-7 draft assemblies from PubMLST. **102 of 106 recorded values agree, with
-nothing unexplained:**
+7 draft assemblies from PubMLST. On every field PubMLST records for these
+strains, the tool reproduces PubMLST's own assignment, and each of the four
+differences is traced to the source data rather than the typing:
 
-| What | Agree | Compared |
-|---|---|---|
-| emm type | 21 | 21 |
-| emm subtype | 18 | 19 |
-| ST | 18 | 20 |
-| emm cluster | 16 | 16 |
-| emm pattern | 14 | 15 |
-| FCT-region form | **15** | **15** |
+| What | Agree | Compared | What that field tests |
+|---|---|---|---|
+| emm type | 21 | 21 | which hit is emm (the emmPrime rule) and the allele |
+| emm subtype | 18 | 19 | the same, to the subtype |
+| ST | 18 | 20 | the MLST calls and the profile lookup |
+| FCT-region form | **15** | **15** | the regulator plus pilA / pilB rule |
+| emm cluster | 16 | 16 | the curated table, keyed on the emm type |
+| emm pattern | 14 | 15 | measured here against PubMLST's *predicted* |
 
-The four differences were each traced to the source data, not to the typing:
-two are PubMLST isolate records that disagree with the deposited genome by a
-single base (HSC5's ST comes down to one base in *gtr*; MGAS6180's subtype to
-one base in *emm*), one is a measured pattern where PubMLST only records a
-predicted one (MGAS8232 genuinely has no SF3 or SF4 beside its emm), and one
-is an ST assigned after the free data cut-off. Each is set out in full in the
-record.
+**Read that as 102 of 106 field values, not 102 genomes**, and note that the
+last two rows are table lookups keyed on the emm type, so once the emm type
+is right they follow from the curated tables and cannot fail on their own.
+The 75 emm type, subtype, ST and FCT values are the independent ones.
+PubMLST records no pilin type, superantigen, resistance or M1UK value for
+these isolates, so those columns are not checked here at all: the pilin type
+is checked against the worked examples in the typing guide (MGAS6180 =
+pil028, isolate 6424 = pil088) and M1UK by the test suite, which writes the
+published SNPs into a genome and expects M1UK back. FCT-9 and FCT-3/4 have no
+public genome and are untested.
 
-PubMLST's public isolate records hold no pilin type at all, so that column
-cannot be checked against them; it is checked against the worked examples in
-the typing guide instead (MGAS6180 = pil028, isolate 6424 = pil088).
-
-Re-run it yourself with `python scripts/validate.py`, which exits non-zero if
+[VALIDATION.md](validation/VALIDATION.md) sets out all of this, including
+what each difference turned out to be and what the figure does and does not
+show. Re-run it with `python scripts/validate.py`, which exits non-zero if
 any difference is not one of the explained ones.
 
 ## Licence

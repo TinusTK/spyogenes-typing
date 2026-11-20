@@ -219,7 +219,48 @@ def main(argv=None):
     if notes:
         lines += ["Notes:", ""] + [f"- {t}" for t in notes] + [""]
 
-    lines += ["## Compared with PubMLST", "",
+    # ------------------------------------------------- how to read the number
+    indep = sum(tally[l][1] for l in ("emm type", "emm subtype", "ST",
+                                      "FCT-region form"))
+    derived = tally["emm cluster"][1] + tally["emm pattern"][1]
+    lines += [
+        "## How to read that number", "",
+        f"The unit is a single field of a single genome, not a genome: "
+        f"{len(rows)} genomes with up to {len(CHECKS)} comparable fields each is "
+        f"{len(rows) * len(CHECKS)} possible values, and PubMLST records no value "
+        f"in {len(rows) * len(CHECKS) - total_n} of them, which leaves {total_n}. "
+        "So it is not \"102 genomes correct\", and the denominator is decided by "
+        "what PubMLST happens to have curated, not by what matters most.", "",
+        f"**The fields are not independent of each other.** emm cluster and the "
+        f"predicted emm pattern are table lookups keyed on the emm type "
+        f"(`db.clusters[emm_type]` and `db.patterns[emm_type]`), so once the emm "
+        f"type is right they follow from the curated tables and cannot fail on "
+        f"their own. Those {derived} values test that the tables were transcribed "
+        f"from the guide correctly, which is worth knowing, but they are not "
+        f"{derived} further checks of the typing. The {indep} emm type, emm "
+        f"subtype, ST and FCT-region values are the independent ones.", "",
+        "**emm pattern is not compared like with like.** PubMLST's public records "
+        "hold no measured pattern for any of these genomes, so the tool's measured "
+        "pattern is compared with the pattern PubMLST predicts for the emm type. "
+        "They answer different questions, and MGAS8232 below is exactly that case.",
+        "",
+        "**Both sides come from PubMLST**, though from different parts of it: the "
+        "tool types against PubMLST's sequence definitions, and the expected "
+        "values are PubMLST's curated isolate records. Agreement therefore shows "
+        "the tool reproduces PubMLST's own assignments, including which hit is "
+        "emm and which FCT form the loci make. It is not independent evidence "
+        "that those assignments are biologically right.", "",
+        "**Not checked here at all:** the superantigen, resistance-gene, M1UK "
+        "lineage, species-check and warning columns, because PubMLST's isolate "
+        "records hold nothing to compare them with. M1UK is covered by the test "
+        "suite instead, which writes the published SNPs into a genome and expects "
+        "M1UK back. Of the nine FCT forms, FCT-9 and FCT-3/4 are not covered: no "
+        "public genome was found for them.", "",
+        "**The sample leans on reference strains:** 15 finished genomes and only "
+        "7 draft assemblies, so fragmented real-world assemblies are "
+        "under-represented. The test suite covers a contig break through emm "
+        "separately.", "",
+        "## Compared with PubMLST", "",
               "`-` in an expected column means PubMLST has no value for it.", "",
               "| Genome | Source | emm type | emm subtype | ST | emm cluster | "
               "emm pattern | FCT form | pilin type |",

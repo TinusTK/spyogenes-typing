@@ -27,6 +27,20 @@ Each was investigated; none is a fault in the typing.
 - **HSC5, ST**: the tool says `84`, PubMLST records `680`. PubMLST isolate 2548 lists gtr 2 (entered by hand in 2015); the deposited assembly NC_021807.1 matches gtr_22 exactly (100% identity and coverage). gtr_2 and gtr_22 differ by one base, and ST84 and ST680 differ only at gtr, so ST84 is the ST of this assembly.
 - **i7422, ST**: the tool says `-`, PubMLST records `1778`. ST1778 was assigned after 31 December 2024, so it is not in the bundled free database; NOVEL is the right answer against it. Users with their own PubMLST key get this ST.
 
+## How to read that number
+
+The unit is a single field of a single genome, not a genome: 22 genomes with up to 7 comparable fields each is 154 possible values, and PubMLST records no value in 48 of them, which leaves 106. So it is not "102 genomes correct", and the denominator is decided by what PubMLST happens to have curated, not by what matters most.
+
+**The fields are not independent of each other.** emm cluster and the predicted emm pattern are table lookups keyed on the emm type (`db.clusters[emm_type]` and `db.patterns[emm_type]`), so once the emm type is right they follow from the curated tables and cannot fail on their own. Those 31 values test that the tables were transcribed from the guide correctly, which is worth knowing, but they are not 31 further checks of the typing. The 75 emm type, emm subtype, ST and FCT-region values are the independent ones.
+
+**emm pattern is not compared like with like.** PubMLST's public records hold no measured pattern for any of these genomes, so the tool's measured pattern is compared with the pattern PubMLST predicts for the emm type. They answer different questions, and MGAS8232 below is exactly that case.
+
+**Both sides come from PubMLST**, though from different parts of it: the tool types against PubMLST's sequence definitions, and the expected values are PubMLST's curated isolate records. Agreement therefore shows the tool reproduces PubMLST's own assignments, including which hit is emm and which FCT form the loci make. It is not independent evidence that those assignments are biologically right.
+
+**Not checked here at all:** the superantigen, resistance-gene, M1UK lineage, species-check and warning columns, because PubMLST's isolate records hold nothing to compare them with. M1UK is covered by the test suite instead, which writes the published SNPs into a genome and expects M1UK back. Of the nine FCT forms, FCT-9 and FCT-3/4 are not covered: no public genome was found for them.
+
+**The sample leans on reference strains:** 15 finished genomes and only 7 draft assemblies, so fragmented real-world assemblies are under-represented. The test suite covers a contig break through emm separately.
+
 ## Compared with PubMLST
 
 `-` in an expected column means PubMLST has no value for it.
