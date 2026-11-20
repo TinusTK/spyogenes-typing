@@ -16,8 +16,10 @@ PubMLST's own typing rules:
   every row
 - one tabular report per run, ready for Excel and downstream reporting
 
-Database: [PubMLST *S. pyogenes*](https://pubmlst.org/organisms/streptococcus-pyogenes),
-emm data curated by the CDC. Refreshed through a reviewed pull request.
+Database: [PubMLST *S. pyogenes*](#database), emm data curated by the CDC.
+The bundled copy holds **only data submitted up to 31 December 2024**, which
+is the part PubMLST gives without an account, refreshed through a reviewed
+pull request. For current data, add your own PubMLST key with `--setup`.
 
 > **Prefer no command line?**
 > [Genomics Workflow Microbials (GWM)](https://github.com/TinusTK/GenomicsWorkflowMicrobials)
@@ -169,9 +171,11 @@ pilin genotypes for group A streptococci* (Feb 2024).
 
 ## Database
 
-The bundled `database/` holds PubMLST data submitted up to 31 December
-2024 (the part PubMLST gives without an account), the curated tables in
-`database/tables/` and the references in `database/references/`.
+The bundled `database/` holds data from
+[PubMLST *S. pyogenes*](https://pubmlst.org/organisms/streptococcus-pyogenes)
+submitted up to 31 December 2024 (the part PubMLST gives without an account),
+the curated tables in `database/tables/` and the references in
+`database/references/`.
 
 For newer data use your own PubMLST account and key:
 
@@ -253,8 +257,9 @@ the terms of their own sources, listed below.
 
 ## Sources and credits
 
-- PubMLST *S. pyogenes* typing databases (Jolley et al. 2018, Wellcome Open
-  Res 3:124), emm data curated by the CDC. Please cite PubMLST.
+- [PubMLST *S. pyogenes*](https://pubmlst.org/organisms/streptococcus-pyogenes)
+  typing databases (Jolley et al. 2018, Wellcome Open Res 3:124), emm data
+  curated by the CDC. Please cite PubMLST.
 - emm clusters: Sanderson-Smith et al. 2014, J Infect Dis 210:1325-38.
 - emm patterns and pilin types: Bessen et al. 2024, mBio.
 - M1UK SNPs: Lynskey et al. 2019, Lancet Infect Dis 19:1209-18; positions
