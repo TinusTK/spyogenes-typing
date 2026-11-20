@@ -1,0 +1,501 @@
+accession	sample	emm	ST	FCT type	Warnings
+NZ_CP167025.1	NZ_CP167025.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP167013.1	NZ_CP167013.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP155734.1	NZ_CP155734.1	emm77.0	63	FCT-4 (pil077)	-
+NZ_CP155739.1	NZ_CP155739.1	emm77.0	63	FCT-4 (pil077)	-
+NZ_CP155737.1	NZ_CP155737.1	emm77.0	-	FCT-4 (pil077)	-
+NZ_CP155738.1	NZ_CP155738.1	emm77.0	63	FCT-4 (pil077)	-
+NZ_CP154891.1	NZ_CP154891.1	emm92.0	674	FCT-4	pilA nt80_13 + pilB nt80_28: no pilin type listed
+NZ_CP121250.1	NZ_CP121250.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found; M1DK: 2 of 15 SNP sites not found
+NZ_CP049799.1	NZ_CP049799.1	emm238.1	1269	FCT-9 (pil238)	-
+NZ_CP033335.1	NZ_CP033335.1	emm75.0	49	FCT-9 (pil025)	-
+NZ_CP156075.1	NZ_CP156075.1	emm5.44	99	FCT-3 (pil005)	-
+NZ_CP167021.1	NZ_CP167021.1	emm4.19	39	FCT-5 (pil004)	-
+NZ_CP167012.1	NZ_CP167012.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP167015.1	NZ_CP167015.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP167009.1	NZ_CP167009.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP167004.1	NZ_CP167004.1	emm6.121	382	FCT-1 (pil006)	-
+NZ_CP167008.1	NZ_CP167008.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP167011.1	NZ_CP167011.1	emm11.0	-	FCT-4	no nt80 cluster listed for pilA34_191: pilin type not called
+NZ_CP167005.1	NZ_CP167005.1	emm11.0	-	FCT-4	no nt80 cluster listed for pilA34_191: pilin type not called
+NZ_CP155741.1	NZ_CP155741.1	emm77.0	63	FCT-4 (pil077)	-
+NZ_CP155735.1	NZ_CP155735.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+NZ_CP155736.1	NZ_CP155736.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+NZ_CP155740.1	NZ_CP155740.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+NZ_CP119599.1	NZ_CP119599.1	emm238.1	1269	FCT-9 (pil238)	-
+NZ_CP097251.1	NZ_CP097251.1	emm22.0	46	FCT-4 (pil066)	-
+NZ_CP064364.1	NZ_CP064364.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP049697.1	NZ_CP049697.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_CP049692.1	NZ_CP049692.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_CP049689.1	NZ_CP049689.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_CP049696.1	NZ_CP049696.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_CP067010.1	NZ_CP067010.1	emm5.23	99	FCT-3 (pil005)	-
+NZ_CP067008.1	NZ_CP067008.1	emm5.23	99	FCT-3 (pil005)	-
+NZ_CP067009.1	NZ_CP067009.1	emm5.23	99	FCT-3 (pil005)	-
+NZ_CP051138.1	NZ_CP051138.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_CP033815.1	NZ_CP033815.1	emm3.60	315	FCT-3 (pil003)	-
+NZ_CP035430.1	NZ_CP035430.1	emm55.0	100	FCT-9 (pil055)	-
+NZ_CP035434.1	NZ_CP035434.1	emm75.1	607	FCT-5 (pil004)	-
+NZ_CP035438.1	NZ_CP035438.1	emm22.8	360	FCT-9 (pil020)	-
+NZ_CP031627.1	NZ_CP031627.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031622.1	NZ_CP031622.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP031640.1	NZ_CP031640.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031635.1	NZ_CP031635.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031631.1	NZ_CP031631.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP031625.1	NZ_CP031625.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP031619.1	NZ_CP031619.1	emm28.0	458	FCT-4 (pil028)	-
+NZ_CP031637.1	NZ_CP031637.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031618.1	NZ_CP031618.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031629.1	NZ_CP031629.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031623.1	NZ_CP031623.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP033337.1	NZ_CP033337.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.1% id / 98% of the gene
+NZ_CP033907.1	NZ_CP033907.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP031770.1	NZ_CP031770.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP007537.1	NZ_CP007537.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP167023.1	NZ_CP167023.1	emm3.93	315	FCT-3 (pil003)	-
+NZ_CP049693.1	NZ_CP049693.1	emm4.0	39	FCT-5	pilA5(~2) not exact: no nt80 cluster, pilin type not called
+NZ_CP041408.1	NZ_CP041408.1	emm87.0	62	FCT-4 (pil087)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+NZ_CP035443.1	NZ_CP035443.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP031617.1	NZ_CP031617.1	emm28.0	458	FCT-4 (pil028)	-
+NZ_CP028841.1	NZ_CP028841.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP033908.1	NZ_CP033908.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP049695.1	NZ_CP049695.1	emm4.0	39	FCT-5	pilB5(~4) not exact: no nt80 cluster, pilin type not called
+NZ_CP049688.1	NZ_CP049688.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_AP045160.1	NZ_AP045160.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_AP045164.1	NZ_AP045164.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_AP045165.1	NZ_AP045165.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_AP045162.1	NZ_AP045162.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_AP045166.1	NZ_AP045166.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_AP045161.1	NZ_AP045161.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_AP045163.1	NZ_AP045163.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_AP045148.1	NZ_AP045148.1	emm3.93	315	FCT-3 (pil003)	-
+NZ_AP045156.1	NZ_AP045156.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_AP045147.1	NZ_AP045147.1	emm28.0	458	FCT-4 (pil028)	-
+NZ_AP045155.1	NZ_AP045155.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_AP045149.1	NZ_AP045149.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_AP045146.1	NZ_AP045146.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_AP045159.1	NZ_AP045159.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_AP045150.1	NZ_AP045150.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+NZ_AP045158.1	NZ_AP045158.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_AP045157.1	NZ_AP045157.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_AP045151.1	NZ_AP045151.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_AP045154.1	NZ_AP045154.1	emm2.0	55	FCT-6 (pil002)	-
+NZ_AP045153.1	NZ_AP045153.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_AP045152.1	NZ_AP045152.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP151846.1	NZ_CP151846.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151858.1	NZ_CP151858.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151849.1	NZ_CP151849.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151857.1	NZ_CP151857.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151854.1	NZ_CP151854.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151847.1	NZ_CP151847.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151851.1	NZ_CP151851.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151852.1	NZ_CP151852.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151850.1	NZ_CP151850.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151855.1	NZ_CP151855.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151856.1	NZ_CP151856.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151848.1	NZ_CP151848.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151859.1	NZ_CP151859.1	emm1.0	785	FCT-2 (pil001)	-
+NZ_CP151853.1	NZ_CP151853.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151845.1	NZ_CP151845.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP035439.1	NZ_CP035439.1	emm77.0	588	FCT-5 (pil102)	-
+NZ_CP035455.1	NZ_CP035455.1	emm197.0	998	FCT-9 (pil065)	-
+NZ_CP035442.1	NZ_CP035442.1	emm25.0	1032	FCT-2 (pil001)	-
+NZ_CP035432.1	NZ_CP035432.1	emm11.0	-	FCT-4	pilB34(~12) not exact: no nt80 cluster, pilin type not called
+NZ_CP035444.1	NZ_CP035444.1	emm90.5	184	FCT-4 (pil013)	-
+NZ_CP035452.1	NZ_CP035452.1	emm123.0	325	FCT-3 (pil053)	-
+NZ_CP035447.1	NZ_CP035447.1	emm97.1	283	FCT-3 (pil098)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 86.6% id / 59% of the gene, speH 84.2% id / 99% of the gene
+NZ_CP035437.1	NZ_CP035437.1	emm78.3	1000	FCT-4 (pil078)	-
+NZ_CP023769.1	NZ_CP023769.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP033767.1	NZ_CP033767.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP027771.1	NZ_CP027771.1	emm81.0	330	FCT-3 (pil094)	-
+NZ_CP008776.1	NZ_CP008776.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP147910.1	NZ_CP147910.1	emm91.0	12	FCT-3 (pil070)	-
+NZ_CP147909.1	NZ_CP147909.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP147908.1	NZ_CP147908.1	emm121.2	1040	FCT-3 (pil098)	-
+NZ_CP149486.1	NZ_CP149486.1	emm113.0	148	FCT-4 (pil012)	-
+CP147909.1	CP147909.1	emm1.0	28	FCT-2 (pil001)	-
+CP147908.1	CP147908.1	emm121.2	1040	FCT-3 (pil098)	-
+CP147910.1	CP147910.1	emm91.0	12	FCT-3 (pil070)	-
+CP149486.1	CP149486.1	emm113.0	148	FCT-4 (pil012)	-
+NZ_CP191521.1	NZ_CP191521.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP191523.1	NZ_CP191523.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_CP191525.1	NZ_CP191525.1	emm4.0	39	FCT-5 (pil004)	-
+NZ_CP191522.1	NZ_CP191522.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP191524.1	NZ_CP191524.1	emm4.0	39	FCT-5 (pil004)	-
+CP191524.1	CP191524.1	emm4.0	39	FCT-5 (pil004)	-
+CP191523.1	CP191523.1	emm4.0	39	FCT-5 (pil004)	-
+CP191525.1	CP191525.1	emm4.0	39	FCT-5 (pil004)	-
+CP191522.1	CP191522.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+CP191521.1	CP191521.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP066541.1	NZ_CP066541.1	emm92.0	82	FCT-9 (pil019)	-
+NZ_CP049187.1	NZ_CP049187.1	emm12.19	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP043530.1	NZ_CP043530.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP167020.1	NZ_CP167020.1	emm75.0	49	FCT-9 (pil025)	-
+NZ_CP067090.1	NZ_CP067090.1	emm3.1	15	FCT-3 (pil003)	-
+NZ_CP031639.1	NZ_CP031639.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031738.1	NZ_CP031738.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP029694.1	NZ_CP029694.1	emm3.1	15	FCT-3 (pil003)	-
+NZ_CP167016.1	NZ_CP167016.1	emm75.0	49	FCT-9 (pil025)	-
+NZ_CP167018.1	NZ_CP167018.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP119678.1	NZ_CP119678.1	emm238.1	530	FCT-9 (pil238)	-
+NZ_CP119598.1	NZ_CP119598.1	emm238.1	530	FCT-9 (pil238)	-
+NZ_CP119597.1	NZ_CP119597.1	emm238.1	1269	FCT-9 (pil238)	-
+NZ_CP065927.1	NZ_CP065927.1	emm9.0	603	FCT-4 (pil009)	-
+NZ_CP072112.1	NZ_CP072112.1	emm66.0	874	FCT-4	pilB34(~42) not exact: no nt80 cluster, pilin type not called
+NZ_CP031621.1	NZ_CP031621.1	emm28.4	52	FCT-4 (pil028)	-
+NZ_CP031626.1	NZ_CP031626.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP031624.1	NZ_CP031624.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP167010.1	NZ_CP167010.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP167006.1	NZ_CP167006.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP167007.1	NZ_CP167007.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP072523.1	NZ_CP072523.1	emm3.1	15	FCT-3 (pil003)	-
+NZ_CP028140.1	NZ_CP028140.1	emm74.0	120	FCT-3 (pil074)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.2% id / 59% of the gene, speH 84.6% id / 98% of the gene
+NZ_CP167024.1	NZ_CP167024.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP167001.1	NZ_CP167001.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP167017.1	NZ_CP167017.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP031628.1	NZ_CP031628.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031633.1	NZ_CP031633.1	emm28.0	456	FCT-4 (pil028)	-
+NZ_CP031620.1	NZ_CP031620.1	emm28.0	458	FCT-4 (pil028)	-
+NZ_CP033621.1	NZ_CP033621.1	emm75.0	150	FCT-9 (pil025)	-
+NZ_CP167124.1	NZ_CP167124.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP167123.1	NZ_CP167123.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP167067.1	NZ_CP167067.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP167022.1	NZ_CP167022.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP167003.1	NZ_CP167003.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP166998.1	NZ_CP166998.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP167000.1	NZ_CP167000.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151476.1	NZ_CP151476.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151475.1	NZ_CP151475.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151478.1	NZ_CP151478.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151477.1	NZ_CP151477.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151479.1	NZ_CP151479.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP031634.1	NZ_CP031634.1	emm28.0	456	FCT-4 (pil028)	-
+NZ_CP115492.1	NZ_CP115492.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115495.1	NZ_CP115495.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115488.1	NZ_CP115488.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115493.1	NZ_CP115493.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115743.1	NZ_CP115743.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115745.1	NZ_CP115745.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115749.1	NZ_CP115749.1	emm12.75	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP115751.1	NZ_CP115751.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP115753.1	NZ_CP115753.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP115747.1	NZ_CP115747.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115505.1	NZ_CP115505.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115506.1	NZ_CP115506.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115503.1	NZ_CP115503.1	emm58.7	176	FCT-9 (pil058)	-
+NZ_CP115521.1	NZ_CP115521.1	emm12.1	36	FCT-4 (pil012)	-
+NZ_CP115513.1	NZ_CP115513.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115487.1	NZ_CP115487.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115514.1	NZ_CP115514.1	emm58.7	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115523.1	NZ_CP115523.1	emm12.1	36	FCT-4 (pil012)	-
+NZ_CP115511.1	NZ_CP115511.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115510.1	NZ_CP115510.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115518.1	NZ_CP115518.1	emm12.19	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP115509.1	NZ_CP115509.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115516.1	NZ_CP115516.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP115515.1	NZ_CP115515.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP115517.1	NZ_CP115517.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP115508.1	NZ_CP115508.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115512.1	NZ_CP115512.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115491.1	NZ_CP115491.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115502.1	NZ_CP115502.1	emm25.1	192	FCT-5 (pil048)	-
+NZ_CP115499.1	NZ_CP115499.1	emm58.7	1429	FCT-9	pilB9(~27) not exact: no nt80 cluster, pilin type not called; superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115497.1	NZ_CP115497.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115500.1	NZ_CP115500.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115522.1	NZ_CP115522.1	emm12.1	36	FCT-4 (pil012)	-
+NZ_CP115486.1	NZ_CP115486.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115490.1	NZ_CP115490.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115507.1	NZ_CP115507.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115501.1	NZ_CP115501.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115520.1	NZ_CP115520.1	emm12.1	36	FCT-4 (pil012)	-
+NZ_CP115498.1	NZ_CP115498.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115494.1	NZ_CP115494.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115519.1	NZ_CP115519.1	emm12.19	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP115489.1	NZ_CP115489.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115485.1	NZ_CP115485.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115504.1	NZ_CP115504.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP115496.1	NZ_CP115496.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP167019.1	NZ_CP167019.1	emm12.0	242	FCT-4 (pil012)	-
+NZ_CP031636.1	NZ_CP031636.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP031632.1	NZ_CP031632.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP031638.1	NZ_CP031638.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP166999.1	NZ_CP166999.1	emm22.0	46	FCT-4 (pil066)	-
+NZ_CP070994.1	NZ_CP070994.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP033336.1	NZ_CP033336.1	emm77.4	133	FCT-4 (pil044)	-
+CP115753.1	CP115753.1	emm12.0	36	FCT-4 (pil012)	-
+CP115751.1	CP115751.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+CP115745.1	CP115745.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115747.1	CP115747.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115749.1	CP115749.1	emm12.75	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+CP115743.1	CP115743.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115523.1	CP115523.1	emm12.1	36	FCT-4 (pil012)	-
+CP115522.1	CP115522.1	emm12.1	36	FCT-4 (pil012)	-
+CP115520.1	CP115520.1	emm12.1	36	FCT-4 (pil012)	-
+CP115521.1	CP115521.1	emm12.1	36	FCT-4 (pil012)	-
+CP115518.1	CP115518.1	emm12.19	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+CP115519.1	CP115519.1	emm12.19	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+CP115517.1	CP115517.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+CP115515.1	CP115515.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+CP115516.1	CP115516.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+CP115514.1	CP115514.1	emm58.7	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115513.1	CP115513.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115512.1	CP115512.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115511.1	CP115511.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115510.1	CP115510.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115509.1	CP115509.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115508.1	CP115508.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115507.1	CP115507.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115505.1	CP115505.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115506.1	CP115506.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115503.1	CP115503.1	emm58.7	176	FCT-9 (pil058)	-
+CP115504.1	CP115504.1	emm58.0	176	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115502.1	CP115502.1	emm25.1	192	FCT-5 (pil048)	-
+CP115501.1	CP115501.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115500.1	CP115500.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115499.1	CP115499.1	emm58.7	1429	FCT-9	pilB9(~27) not exact: no nt80 cluster, pilin type not called; superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115498.1	CP115498.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115497.1	CP115497.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115496.1	CP115496.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115495.1	CP115495.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115493.1	CP115493.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115494.1	CP115494.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115492.1	CP115492.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115491.1	CP115491.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115490.1	CP115490.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115489.1	CP115489.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115488.1	CP115488.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115486.1	CP115486.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115487.1	CP115487.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+CP115485.1	CP115485.1	emm58.7	1429	FCT-9 (pil058)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.3% id / 98% of the gene
+NZ_CP032700.1	NZ_CP032700.1	emm92.0	82	FCT-9 (pil019)	-
+NZ_CP008695.1	NZ_CP008695.1	emm23.0	160	FCT-1 (pil023)	-
+NZ_CP020082.1	NZ_CP020082.1	emm75.0	150	FCT-9 (pil025)	-
+NZ_CP014542.1	NZ_CP014542.1	emm75.0	150	FCT-9 (pil025)	-
+NZ_CP014027.2	NZ_CP014027.2	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP021640.1	NZ_CP021640.1	emm179.0	619	FCT-3 (pil003)	-
+NZ_CP020027.1	NZ_CP020027.1	emm75.0	150	FCT-9 (pil025)	-
+NZ_CP060265.1	NZ_CP060265.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP013838.1	NZ_CP013838.1	emm89.0	407	FCT-4 (pil011)	-
+NZ_CP013840.1	NZ_CP013840.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP013839.1	NZ_CP013839.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP060267.1	NZ_CP060267.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP060266.1	NZ_CP060266.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP060270.1	NZ_CP060270.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP060268.1	NZ_CP060268.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP060269.1	NZ_CP060269.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP116457.1	NZ_CP116457.1	emm238.1	530	FCT-9 (pil238)	-
+NZ_AP039423.1	NZ_AP039423.1	emm3.0	15	FCT-3 (pil003)	-
+NZ_CP022354.1	NZ_CP022354.1	emm111.2	1065	FCT-3	emm NOVEL: nearest emm111.2 at 99.4% identity; cluster and pattern from emm111; pilA34(~63) not exact: no nt80 cluster, pilin type not called
+NZ_AP023390.1	NZ_AP023390.1	emm89.0	646	FCT-4 (pil089)	-
+NZ_AP023389.1	NZ_AP023389.1	emm89.0	1461	FCT-4	no nt80 cluster listed for pilA34_197: pilin type not called
+NZ_AP023387.1	NZ_AP023387.1	emm3.1	15	FCT-3 (pil003)	-
+NZ_AP023388.1	NZ_AP023388.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_AP019548.1	NZ_AP019548.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_AP018337.1	NZ_AP018337.1	emm3.95	15	FCT-3 (pil003)	-
+NZ_AP017629.1	NZ_AP017629.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_HG316453.1	NZ_HG316453.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP036531.1	NZ_CP036531.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP036530.1	NZ_CP036530.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP035448.1	NZ_CP035448.1	emm70.0	10	FCT-3 (pil080)	-
+NZ_CP136948.1	NZ_CP136948.1	emm77.0	399	FCT-4	pilA nt80_13 + pilB nt80_28: no pilin type listed
+NZ_CP136951.1	NZ_CP136951.1	emm77.0	399	FCT-4	pilA nt80_13 + pilB nt80_28: no pilin type listed
+NZ_CP136950.1	NZ_CP136950.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP140117.2	NZ_CP140117.2	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP015238.2	NZ_CP015238.2	emm71.0	318	FCT-3 (pil053)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.2% id / 59% of the gene, speH 84.4% id / 98% of the gene
+NZ_CP011069.1	NZ_CP011069.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP142355.1	NZ_CP142355.1	emm52.1	43	FCT-3 (pil064)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+NZ_CP142354.1	NZ_CP142354.1	emm4.0	105	FCT-5 (pil048)	-
+NZ_CP142351.1	NZ_CP142351.1	emm115.0	135	FCT-1 (pil115)	-
+NZ_CP142358.1	NZ_CP142358.1	emm14.4	118	FCT-4 (pil114)	-
+NZ_CP142350.1	NZ_CP142350.1	emm218.2	145	FCT-4 (pil039)	-
+NZ_CP142357.1	NZ_CP142357.1	emm52.2	270	FCT-3 (pil003)	-
+NZ_CP142353.1	NZ_CP142353.1	emm101.1	11	FCT-3 (pil070)	-
+NZ_CP142349.1	NZ_CP142349.1	emm26.0	158	FCT-5 (pil004)	-
+NZ_CP142356.1	NZ_CP142356.1	emm78.3	253	FCT-4 (pil011)	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E
+NZ_CP142352.1	NZ_CP142352.1	emm115.0	123	FCT-3 (pil074)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.2% id / 59% of the gene, speH 84.6% id / 98% of the gene
+NZ_CP010449.1	NZ_CP010449.1	emm114.0	188	FCT-4 (pil114)	-
+NZ_CP010450.1	NZ_CP010450.1	emm101.0	182	FCT-3 (pil101)	-
+NZ_CP118310.1	NZ_CP118310.1	emm82.0	36	FCT-4 (pil012)	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E
+NZ_CP118312.1	NZ_CP118312.1	emm82.0	36	FCT-4 (pil012)	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E
+NZ_CP060639.1	NZ_CP060639.1	emm9.0	75	FCT-4 (pil009)	emmPrime not found next to emm: emm taken from the emm locus hit
+NZ_CP060645.1	NZ_CP060645.1	emm48.1	161	FCT-5 (pil048)	-
+NZ_CP047120.1	NZ_CP047120.1	emm238.1	530	FCT-9 (pil238)	-
+NZ_CP045930.1	NZ_CP045930.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP007560.1	NZ_CP007560.1	emm87.0	62	FCT-4 (pil087)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+NZ_CP007041.1	NZ_CP007041.1	emm3.2	406	FCT-3 (pil003)	-
+NZ_CP007240.1	NZ_CP007240.1	emm83.1	5	FCT-3 (pil083)	-
+NZ_CP118308.1	NZ_CP118308.1	emm82.0	36	FCT-4 (pil012)	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E
+NZ_CP118309.1	NZ_CP118309.1	emm82.0	36	FCT-4 (pil012)	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E
+NZ_CP118307.1	NZ_CP118307.1	emm82.0	36	FCT-4 (pil012)	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E
+NZ_CP118311.1	NZ_CP118311.1	emm82.7	36	FCT-4 (pil012)	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E
+NZ_CP060646.1	NZ_CP060646.1	emm25.1	-	FCT-5	pilA5(~35) not exact: no nt80 cluster, pilin type not called; pilB5(~7) not exact: no nt80 cluster, pilin type not called
+NZ_CP040997.1	NZ_CP040997.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP035450.1	NZ_CP035450.1	emm93.4	814	FCT-3 (pil033)	-
+NZ_CP028148.1	NZ_CP028148.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP022206.1	NZ_CP022206.1	emm111.2	1065	FCT-3	emm NOVEL: nearest emm111.2 at 99.4% identity; cluster and pattern from emm111; pilA34(~63) not exact: no nt80 cluster, pilin type not called
+NZ_CP011535.2	NZ_CP011535.2	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP012045.1	NZ_CP012045.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP011068.1	NZ_CP011068.1	emm28.0	52	FCT-4 (pil028)	-
+NZ_CP007562.1	NZ_CP007562.1	emm83.1	5	FCT-3 (pil083)	-
+NZ_CP007561.1	NZ_CP007561.1	emm82.0	334	FCT-4 (pil044)	-
+NZ_CP009612.1	NZ_CP009612.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP007241.1	NZ_CP007241.1	emm44.0	178	FCT-4 (pil011)	-
+AP045166.1	AP045166.1	emm89.0	101	FCT-4 (pil089)	-
+AP045165.1	AP045165.1	emm12.0	36	FCT-4 (pil012)	-
+AP045164.1	AP045164.1	emm12.0	36	FCT-4 (pil012)	-
+AP045163.1	AP045163.1	emm1.0	28	FCT-2 (pil001)	-
+AP045162.1	AP045162.1	emm1.0	28	FCT-2 (pil001)	-
+AP045161.1	AP045161.1	emm1.0	28	FCT-2 (pil001)	-
+AP045160.1	AP045160.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+AP045159.1	AP045159.1	emm1.0	28	FCT-2 (pil001)	-
+AP045158.1	AP045158.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+AP045157.1	AP045157.1	emm1.0	28	FCT-2 (pil001)	-
+AP045156.1	AP045156.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+AP045155.1	AP045155.1	emm1.0	28	FCT-2 (pil001)	-
+AP045154.1	AP045154.1	emm2.0	55	FCT-6 (pil002)	-
+AP045153.1	AP045153.1	emm1.0	28	FCT-2 (pil001)	-
+AP045152.1	AP045152.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+AP045151.1	AP045151.1	emm89.0	101	FCT-4 (pil089)	-
+AP045150.1	AP045150.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+AP045149.1	AP045149.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+AP045148.1	AP045148.1	emm3.93	315	FCT-3 (pil003)	-
+AP045147.1	AP045147.1	emm28.0	458	FCT-4 (pil028)	-
+AP045146.1	AP045146.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP167014.1	NZ_CP167014.1	emm89.0	101	FCT-4 (pil089)	-
+NZ_CP060638.1	NZ_CP060638.1	emm90.2	184	FCT-4 (pil013)	-
+NZ_CP060648.1	NZ_CP060648.1	emm204.0	28	FCT-2 (pil001)	-
+NZ_CP060643.1	NZ_CP060643.1	emm68.0	993	FCT-2 (pil001)	-
+NZ_CP060649.1	NZ_CP060649.1	emm118.0	167	FCT-4 (pil013)	-
+NZ_CP060644.1	NZ_CP060644.1	emm63.0	-	FCT-5 (pil232)	-
+NZ_CP060640.1	NZ_CP060640.1	emm84.0	1056	FCT-3 (pil053)	-
+NZ_CP060642.1	NZ_CP060642.1	emm76.0	378	FCT-4 (pil012)	-
+NZ_CP060641.1	NZ_CP060641.1	emm81.0	837	FCT-3 (pil094)	emm pattern markers mga-2;SF1;SF4 fit no pattern A-E: REA; predicted for this emm type: D
+NZ_CP060647.1	NZ_CP060647.1	emm22.0	46	FCT-4 (pil066)	-
+NZ_CP044093.1	NZ_CP044093.1	emm12.0	36	FCT-4 (pil012)	-
+NZ_CP118481.1	NZ_CP118481.1	emm12.0	36	FCT-4	no nt80 cluster listed for pilB34_22: pilin type not called
+NZ_CP035446.1	NZ_CP035446.1	emm68.2	989	FCT-1 (pil006)	-
+NZ_CP035427.1	NZ_CP035427.1	emm74.0	120	FCT-3 (pil074)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.2% id / 59% of the gene, speH 84.6% id / 98% of the gene
+NZ_CP035454.1	NZ_CP035454.1	emm54.1	302	FCT-3 (pil070)	-
+NZ_CP013672.1	NZ_CP013672.1	emm53.0	11	FCT-3 (pil033)	-
+NZ_CP160045.1	NZ_CP160045.1	emm1.6	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP140114.1	NZ_CP140114.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP140116.1	NZ_CP140116.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP140113.1	NZ_CP140113.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP035431.1	NZ_CP035431.1	emm105.0	954	FCT-4 (pil105)	emm pattern markers mga-2;SF1x2;SF4 fit no pattern A-E: REA; predicted for this emm type: REA
+NZ_CP035436.1	NZ_CP035436.1	emm89.14	380	FCT-4 (pil077)	-
+NZ_CP032699.1	NZ_CP032699.1	emm11.0	-	FCT-4	emm pattern markers mga-2;SF2;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA34_191: pilin type not called
+NZ_CP032665.1	NZ_CP032665.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP008926.1	NZ_CP008926.1	emm80.1	8	FCT-3 (pil080)	-
+NZ_CP151440.1	NZ_CP151440.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP035433.1	NZ_CP035433.1	emm65.0	716	FCT-3 (pil003)	-
+NZ_CP035428.1	NZ_CP035428.1	STG866.1	450	FCT-4	pilA nt80_13 + pilB nt80_28: no pilin type listed; superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.6% id / 96% of the gene
+NZ_CP035453.1	NZ_CP035453.1	emm100.0	119	FCT-3 (pil070)	-
+NZ_CP151457.1	NZ_CP151457.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151448.1	NZ_CP151448.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP118306.1	NZ_CP118306.1	emm82.0	334	FCT-4 (pil044)	-
+NZ_CP035429.1	NZ_CP035429.1	-	612	FCT-3 (pil178)	no emm at an emmPrime site; emm-like hits only
+NZ_CP035440.1	NZ_CP035440.1	emm124.0	199	FCT-4 (pil114)	-
+NZ_CP151461.1	NZ_CP151461.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151445.1	NZ_CP151445.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151442.1	NZ_CP151442.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151467.1	NZ_CP151467.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151441.1	NZ_CP151441.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151462.1	NZ_CP151462.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151469.1	NZ_CP151469.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151453.1	NZ_CP151453.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151439.1	NZ_CP151439.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151458.1	NZ_CP151458.1	emm1.25	28	FCT-2 (pil001)	-
+NZ_CP151444.1	NZ_CP151444.1	emm1.25	28	FCT-2 (pil001)	-
+NZ_CP031630.1	NZ_CP031630.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP011415.1	NZ_CP011415.1	emm6.52	37	FCT-1	pilB1(~6) not exact: no nt80 cluster, pilin type not called; superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.4% id / 59% of the gene, speH 84.3% id / 98% of the gene
+NZ_CP011414.1	NZ_CP011414.1	emm6.52	37	FCT-1	pilB1(~6) not exact: no nt80 cluster, pilin type not called; superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.4% id / 59% of the gene, speH 84.3% id / 98% of the gene
+NZ_CP151466.1	NZ_CP151466.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151464.1	NZ_CP151464.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151443.1	NZ_CP151443.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151446.1	NZ_CP151446.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151451.1	NZ_CP151451.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151460.1	NZ_CP151460.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151454.1	NZ_CP151454.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151463.1	NZ_CP151463.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP035445.1	NZ_CP035445.1	emm92.0	1026	FCT-4	pilA nt80_13 + pilB nt80_28: no pilin type listed
+NZ_CP035441.1	NZ_CP035441.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP032666.1	NZ_CP032666.1	emm28.0	52	FCT-4	no nt80 cluster listed for pilA34_192: pilin type not called
+NZ_CP151455.1	NZ_CP151455.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151468.1	NZ_CP151468.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151470.1	NZ_CP151470.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151459.1	NZ_CP151459.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151450.1	NZ_CP151450.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+NZ_CP151465.1	NZ_CP151465.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151437.1	NZ_CP151437.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151456.1	NZ_CP151456.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151438.1	NZ_CP151438.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151452.1	NZ_CP151452.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151449.1	NZ_CP151449.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP118482.1	NZ_CP118482.1	-	36	FCT-4 (pil012)	-
+NZ_CP151436.1	NZ_CP151436.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP151447.1	NZ_CP151447.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP035449.1	NZ_CP035449.1	emm56.0	115	FCT-3 (pil098)	-
+NZ_CP035426.1	NZ_CP035426.1	emm57.0	1025	FCT-3 (pil043)	-
+NZ_CP035435.1	NZ_CP035435.1	emm64.3	1008	FCT-3 (pil053)	emmPrime not found next to emm: emm taken from the emm locus hit; emm pattern markers mga-2;SF1;SF3 fit no pattern A-E: REA; predicted for this emm type: D
+NZ_CP035451.1	NZ_CP035451.1	emm230.0	205	FCT-3 (pil225)	-
+NZ_CP055246.1	NZ_CP055246.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP049686.1	NZ_CP049686.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP049687.1	NZ_CP049687.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP049694.1	NZ_CP049694.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP049690.1	NZ_CP049690.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP049685.1	NZ_CP049685.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP049691.1	NZ_CP049691.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+NZ_CP077685.1	NZ_CP077685.1	emm49.1	29	FCT-3	no nt80 cluster listed for pilA34_196: pilin type not called
+CP156075.1	CP156075.1	emm5.44	99	FCT-3 (pil005)	-
+CP151859.1	CP151859.1	emm1.0	785	FCT-2 (pil001)	-
+CP151858.1	CP151858.1	emm1.0	28	FCT-2 (pil001)	-
+CP151857.1	CP151857.1	emm1.0	28	FCT-2 (pil001)	-
+CP151856.1	CP151856.1	emm1.0	28	FCT-2 (pil001)	-
+CP151855.1	CP151855.1	emm1.0	28	FCT-2 (pil001)	-
+CP151854.1	CP151854.1	emm1.0	28	FCT-2 (pil001)	-
+CP151853.1	CP151853.1	emm1.0	28	FCT-2 (pil001)	-
+CP151852.1	CP151852.1	emm1.0	28	FCT-2 (pil001)	-
+CP151851.1	CP151851.1	emm1.0	28	FCT-2 (pil001)	-
+CP151850.1	CP151850.1	emm1.0	28	FCT-2 (pil001)	-
+CP151849.1	CP151849.1	emm1.0	28	FCT-2 (pil001)	-
+CP151848.1	CP151848.1	emm1.0	28	FCT-2 (pil001)	-
+CP151847.1	CP151847.1	emm1.0	28	FCT-2 (pil001)	-
+CP151846.1	CP151846.1	emm1.0	28	FCT-2 (pil001)	-
+CP151845.1	CP151845.1	emm1.0	28	FCT-2 (pil001)	-
+NZ_CP167002.1	NZ_CP167002.1	emm94.1	89	FCT-3 (pil094)	-
+AP039423.1	AP039423.1	emm3.0	15	FCT-3 (pil003)	-
+CP167124.1	CP167124.1	emm1.0	28	FCT-2 (pil001)	-
+CP167123.1	CP167123.1	emm1.0	28	FCT-2 (pil001)	-
+CP167067.1	CP167067.1	emm12.0	36	FCT-4 (pil012)	-
+CP167025.1	CP167025.1	emm89.0	101	FCT-4 (pil089)	-
+CP167024.1	CP167024.1	emm1.0	28	FCT-2 (pil001)	-
+CP167023.1	CP167023.1	emm3.93	315	FCT-3 (pil003)	-
+CP167021.1	CP167021.1	emm4.19	39	FCT-5 (pil004)	-
+CP167022.1	CP167022.1	emm89.0	101	FCT-4 (pil089)	-
+CP167020.1	CP167020.1	emm75.0	49	FCT-9 (pil025)	-
+CP167018.1	CP167018.1	emm4.0	39	FCT-5	emm pattern markers mga-2;SF3;SF4 fit no pattern A-E: REA; predicted for this emm type: E; no nt80 cluster listed for pilA5_36: pilin type not called
+CP167017.1	CP167017.1	emm1.0	28	FCT-2 (pil001)	-
+CP167019.1	CP167019.1	emm12.0	242	FCT-4 (pil012)	-
+CP167016.1	CP167016.1	emm75.0	49	FCT-9 (pil025)	-
+CP167014.1	CP167014.1	emm89.0	101	FCT-4 (pil089)	-
+CP167013.1	CP167013.1	emm89.0	101	FCT-4 (pil089)	-
+CP167012.1	CP167012.1	emm28.0	52	FCT-4 (pil028)	-
+CP167015.1	CP167015.1	emm28.0	52	FCT-4 (pil028)	-
+CP167011.1	CP167011.1	emm11.0	-	FCT-4	no nt80 cluster listed for pilA34_191: pilin type not called
+CP167008.1	CP167008.1	emm28.0	52	FCT-4 (pil028)	-
+CP167006.1	CP167006.1	emm12.0	36	FCT-4 (pil012)	-
+CP167009.1	CP167009.1	emm28.0	52	FCT-4 (pil028)	-
+CP167010.1	CP167010.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+CP167007.1	CP167007.1	emm1.0	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+CP167002.1	CP167002.1	emm94.1	89	FCT-3 (pil094)	-
+CP167004.1	CP167004.1	emm6.121	382	FCT-1 (pil006)	-
+CP167005.1	CP167005.1	emm11.0	-	FCT-4	no nt80 cluster listed for pilA34_191: pilin type not called
+CP167003.1	CP167003.1	emm1.0	28	FCT-2 (pil001)	-
+CP167000.1	CP167000.1	emm1.0	28	FCT-2 (pil001)	-
+CP167001.1	CP167001.1	emm1.0	28	FCT-2 (pil001)	-
+CP166998.1	CP166998.1	emm12.0	36	FCT-4 (pil012)	-
+CP166999.1	CP166999.1	emm22.0	46	FCT-4 (pil066)	-
+CP160045.1	CP160045.1	emm1.6	28	FCT-2 (pil001)	M1UK: 1 of 27 SNP sites not found
+CP155740.1	CP155740.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+CP155738.1	CP155738.1	emm77.0	63	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene
+CP155737.1	CP155737.1	emm77.0	-	FCT-4 (pil077)	superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speK 87.5% id / 98% of the gene

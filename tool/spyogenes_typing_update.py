@@ -294,12 +294,22 @@ def fetch_scheme(row, outdir):
 # Superantigen genes taken from the annotated CDS of complete genomes. Each
 # distinct sequence of a gene is kept once, named after the first genome it
 # was seen in.
-SAG_GENOMES = ["NC_007297.2",   # MGAS5005 (M1)
-               "NC_002737.2",   # SF370 (M1)
-               "NC_004070.1",   # MGAS315 (M3)
-               "NC_003485.1",   # MGAS8232 (M18)
-               "NC_006086.1",   # MGAS10394 (M6)
-               "NC_008022.1"]   # MGAS10270 (M2)
+# More genomes widen the net: a superantigen allele more than 10% away from
+# every sequence here is not called (it is reported in Warnings instead), so
+# the genes with the widest spread need the most sources. Checked 2026-11-20
+# across 22 genomes: smeZ ranged 95.2-100% on two sources, so MGAS10750 and
+# MGAS15252 were added for it; speC, speG, speK, speL, speM and ssa all sat
+# above 99.5% and need no more. Only CDS annotated with /gene= are taken, so
+# a genome that labels its superantigens by product alone adds nothing.
+SAG_GENOMES = ["NC_007297.2",   # MGAS5005 (M1): speA, speJ, smeZ, speG
+               "NC_002737.2",   # SF370 (M1): speC, speH, speI
+               "NC_004070.1",   # MGAS315 (M3): speA, speG, speK
+               "NC_003485.1",   # MGAS8232 (M18): speA, speC, speG, speL, speM, smeZ
+               "NC_006086.1",   # MGAS10394 (M6): speC, speG
+               "NC_008022.1",   # MGAS10270 (M2): speG
+               "NC_008024.1",   # MGAS10750 (M4): smeZ, speC
+               "NC_017040.1",   # MGAS15252 (M59): smeZ, speG
+               "NC_007296.2"]   # MGAS6180 (M28): speC, speG
 SAG_GENES = ["speA", "speC", "speG", "speH", "speI", "speJ", "speK", "speL", "speM", "smeZ"]
 SSA_RECORD = "L29565.1"         # ssa (streptococcal superantigen), Mollick et al. 1993
 

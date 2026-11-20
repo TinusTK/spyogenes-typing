@@ -1,0 +1,10 @@
+# Form coverage, not agreement with PubMLST. PubMLST records an FCT-region
+# form for only 134 of its isolates, none of which has contigs, and it has a
+# single FCT-9 isolate with no assembly. So for the forms below there is no
+# curated value anywhere to compare with: these genomes show that the rule
+# engine reaches each form and that the loci it saw match the form's
+# definition. Found by typing 500 complete NCBI genomes (sweep_500_genomes.tsv).
+genome	accession	emm	form	pilin_type	what it shows
+NZ_CP066541.1.fasta.gz	NZ_CP066541.1	emm92.0	FCT-9	pil019	rofA and pilB9 exact, no pilA hit at all even at 70% identity
+NZ_CP035455.1.fasta.gz	NZ_CP035455.1	emm197.0	FCT-9	pil065	rofA and pilB9 exact, no pilA hit at all even at 70% identity
+NZ_CP033335.1.fasta.gz	NZ_CP033335.1	emm75.0	FCT-9	pil025	rofA and pilB9 exact; the only pilA-like hits cover 8% of the gene, so pilA is absent

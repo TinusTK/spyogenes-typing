@@ -226,6 +226,17 @@ pil028, isolate 6424 = pil088) and M1UK by the test suite, which writes the
 published SNPs into a genome and expects M1UK back. FCT-9 and FCT-3/4 have no
 public genome and are untested.
 
+**Form coverage is recorded separately**, because agreement and coverage are
+different things. PubMLST has curated an FCT-region form for only 134
+isolates, none with contigs, so for some forms there is nothing to compare
+against. All 500 complete *S. pyogenes* genomes in NCBI were typed in one run
+instead ([sweep_500_genomes.tsv](validation/sweep_500_genomes.tsv)): that
+found **45 distinct pilin types** and every form except FCT-10 and FCT-3/4,
+including 86 FCT-9 genomes, three of which are kept as coverage cases. FCT-3/4
+is not a form a genome carries — it is the answer when the regulator is
+missing — so the test suite covers it by masking rofA out of an FCT-4 genome.
+None of that is counted in the 106.
+
 [VALIDATION.md](validation/VALIDATION.md) sets out all of this, including
 what each difference turned out to be and what the figure does and does not
 show. Re-run it with `python scripts/validate.py`, which exits non-zero if

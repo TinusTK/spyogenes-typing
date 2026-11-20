@@ -80,7 +80,7 @@ Every column of `results_PubMLST_2026-11-20.tsv`, as the tool wrote it.
 | MGAS6180 | S. pyogenes | emm28.0 | PERFECT | emmL203.4 (97.2%) | - | E4 | E | 52 | gki(11) | gtr(6) | murI(14) | mutS(5) | recP(9) | xpt(17) | yqiL(19) | PERFECT | - | smeZ;speC;speG;speJ;speK | - | FCT-4 (pil028) | - | PubMLST_2026-11-20 |
 | Alab49 | S. pyogenes | emm53.0 | PERFECT | emmL134.2;emmL156.1 (98.9%) | - | D4 | D | 11 | gki(2) | gtr(6) | murI(1) | mutS(2) | recP(2) | xpt(2) | yqiL(2) | PERFECT | - | smeZ;speC;speG;speL;speM | - | FCT-3 (pil033) | - | PubMLST_2026-11-20 |
 | SF370 | S. pyogenes | emm1.6 | PERFECT | - | - | A-C3 | A | 28 | gki(4) | gtr(3) | murI(4) | mutS(4) | recP(4) | xpt(2) | yqiL(4) | PERFECT | M1global (0 M1UK SNPs) | smeZ;speC;speG;speH;speI;speJ | - | FCT-2 (pil001) | M1UK: 1 of 27 SNP sites not found | PubMLST_2026-11-20 |
-| MGAS10394 | S. pyogenes | emm6.4 | PERFECT | - | - | clade_Y_M6 | A | 382 | gki(5) | gtr(52) | murI(5) | mutS(5) | recP(5) | xpt(4) | yqiL(3) | PERFECT | - | smeZ;speA;speC;speG;speK | msrD(2);mefA(1) | FCT-1 (pil006) | - | PubMLST_2026-11-20 |
+| MGAS10394 | S. pyogenes | emm6.4 | PERFECT | - | - | clade_Y_M6 | A | 382 | gki(5) | gtr(52) | murI(5) | mutS(5) | recP(5) | xpt(4) | yqiL(3) | PERFECT | - | smeZ;speA;speC;speG;speK | msrD(2);mefA(1) | FCT-1 (pil006) | superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.4% id / 59% of the gene, speH 84.3% id / 98% of the gene | PubMLST_2026-11-20 |
 | Manfredo | S. pyogenes | emm5.0 | PERFECT | - | - | clade_Y_M5 | A | 99 | gki(33) | gtr(30) | murI(7) | mutS(5) | recP(5) | xpt(26) | yqiL(3) | PERFECT | - | smeZ;speC;speG;speH;speI | - | FCT-3 (pil005) | - | PubMLST_2026-11-20 |
 | SSI-1 | S. pyogenes | emm3.1 | PERFECT | - | - | A-C5 | A | 15 | gki(2) | gtr(6) | murI(8) | mutS(5) | recP(2) | xpt(3) | yqiL(2) | PERFECT | - | smeZ;speA;speG;speK;ssa | - | FCT-3 (pil003) | - | PubMLST_2026-11-20 |
 | MGAS8232 | S. pyogenes | emm18.19 | PERFECT | - | - | clade_Y_M18 | REA | 42 | gki(6) | gtr(5) | murI(7) | mutS(1) | recP(5) | xpt(6) | yqiL(3) | PERFECT | - | smeZ;speA;speC;speG;speL;speM | - | FCT-3 (pil018) | emm pattern markers mga-2;SF1 fit no pattern A-E: REA; predicted for this emm type: A-C/D | PubMLST_2026-11-20 |
@@ -98,6 +98,32 @@ Every column of `results_PubMLST_2026-11-20.tsv`, as the tool wrote it.
 | i6541 | S. pyogenes | emm53.0 | PERFECT | emmL134.2;emmL156.1 (98.9%) | - | D4 | D | 1477 | gki(2) | gtr(6) | murI(1) | mutS(2) | recP(186) | xpt(2) | yqiL(2) | PERFECT | - | smeZ;speC;speG;speL;speM | - | FCT-3 (pil033) | - | PubMLST_2026-11-20 |
 | i6549 | S. pyogenes | emm18.21 | PERFECT | emmL156.1 (98.9%);emmL156.1 (98.3%);emmL167.0 (98.9%) | - | clade_Y_M18 | D | 1482 | gki(1) | gtr(2) | murI(2) | mutS(130) | recP(35) | xpt(3) | yqiL(109) | PERFECT | - | smeZ;speG;speJ | - | FCT-3 (pil053) | emm pattern markers not exact (new variant?): mga-2 | PubMLST_2026-11-20 |
 | i7422 | S. pyogenes | emm75.0 | PERFECT | emmL170.0 | - | E6 | E | - | gki(3) | gtr(2) | murI(1) | mutS(37) | recP(12) | xpt(8) | yqiL(7) | NOVEL | - | smeZ;speC;speG;speJ | - | FCT-9 (pil025) | - | PubMLST_2026-11-20 |
+## Form coverage (not agreement)
+
+PubMLST records an FCT-region form for only 134 of its isolates, **none of which has contigs**, and it holds a single FCT-9 isolate with no assembly. So for some forms there is no curated value anywhere to compare against. The genomes below, found by typing 500 complete NCBI genomes, instead show that the rule engine reaches the form and that the loci it saw match that form's definition. **These are not counted in the agreement figure above**, because there is nothing to agree with.
+
+| Genome | emm | Form called | Pilin type | Why it is evidence |
+|---|---|---|---|---|
+| `NZ_CP066541.1` | emm92.0 | FCT-9 (pil019) ✓ | pil019 | rofA and pilB9 exact, no pilA hit at all even at 70% identity |
+| `NZ_CP035455.1` | emm197.0 | FCT-9 (pil065) ✓ | pil065 | rofA and pilB9 exact, no pilA hit at all even at 70% identity |
+| `NZ_CP033335.1` | emm75.0 | FCT-9 (pil025) ✓ | pil025 | rofA and pilB9 exact; the only pilA-like hits cover 8% of the gene, so pilA is absent |
+
+### What 500 complete genomes look like
+
+Every complete *S. pyogenes* genome in NCBI that the search returned (500 of 776) was typed in one run, as a check that the tool does not fall over and to see the spread of forms. It found **45 distinct pilin types**. Full table: [sweep_500_genomes.tsv](sweep_500_genomes.tsv).
+
+| Form | Genomes |
+|---|---|
+| FCT-4 | 177 |
+| FCT-2 | 134 |
+| FCT-9 | 86 |
+| FCT-3 | 55 |
+| FCT-5 | 39 |
+| FCT-1 | 7 |
+| FCT-6 | 2 |
+
+FCT-9 is 17% of these genomes but only 1 of PubMLST's 134 curated FCT isolates. That curated set is old and uneven (it still uses the retired FCT-7 and FCT-8 labels and has no FCT-3/4 or FCT-10), so the difference is in what has been curated, not in the calls: every FCT-9 genome checked has rofA and pilB9 as exact matches and no pilA at all. FCT-10 did not appear in this set, and FCT-3/4 cannot: it is what the tool answers when the regulator is missing, which the test suite covers by masking rofA.
+
 
 ## Genomes
 

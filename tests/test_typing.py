@@ -244,6 +244,54 @@ def test_m1uk_and_split_emm(tmp_path):
 
 
 @needs_blast
+def test_fct_3_4_when_the_regulator_is_missing(tmp_path):
+    """FCT-3/4 is not a form a genome carries: it is the answer when
+    pilA34/pilB34 are found but neither rofA nor nra is, which happens on a
+    contig break or with a regulator too divergent to match. Masking rofA in
+    MGAS6180 (FCT-4) must turn its call into FCT-3/4, with the pilin type
+    still named."""
+    db = st.Database(DB)
+    rofa = next(s for n, s in st.parse_sequences(
+        open(os.path.join(DB, "pubmlst", "fct_other", "rofA.tfa")).read())
+        if n == "rofA_1")
+    seqs = st.parse_sequences(st.read_bytes(genome("MGAS6180")))
+    masked, hits = [], 0
+    for name, s in seqs:
+        for probe in (rofa, st.revcom(rofa)):
+            while probe in s:
+                s = s.replace(probe, "N" * len(probe), 1)
+                hits += 1
+        masked.append((name, s))
+    assert hits == 1, f"expected one rofA copy to mask, masked {hits}"
+    p = tmp_path / "no_regulator.fa"
+    p.write_text("".join(f">{n}\n{s}\n" for n, s in masked))
+
+    row = rows(run(str(p)).stdout)[0]
+    assert row["FCT type"] == "FCT-3/4 (pil028)", row["FCT type"]
+    # the rest of the typing is untouched
+    assert (row["emm"], row["ST"]) == ("emm28.0", "52")
+    # and the unmasked genome still calls FCT-4, so the test proves the mask
+    assert rows(run(genome("MGAS6180")).stdout)[0]["FCT type"] == "FCT-4 (pil028)"
+
+
+@needs_blast
+def test_sub_threshold_gene_hits_are_reported(tmp_path):
+    """A gene that is clearly present but too far from any known allele is
+    not called, and the Warnings column says so instead of staying silent.
+    MGAS10394 carries disrupted speH/speI remnants at 84-87% identity."""
+    g = os.path.join(ROOT, "validation", "genomes", "MGAS10394.fasta.gz")
+    if not os.path.exists(g):
+        pytest.skip("validation genomes not present")
+    row = rows(run(g).stdout)[0]
+    assert "speH" not in row["Superantigens"].split(";")
+    assert "superantigen not called" in row["Warnings"]
+    assert "speH" in row["Warnings"] and "84" in row["Warnings"]
+    # a hit above the limit is a plain call, with no warning about it
+    assert "speA" in row["Superantigens"]
+    assert "speA" not in row["Warnings"]
+
+
+@needs_blast
 def test_not_spyogenes(tmp_path):
     p = tmp_path / "x.fa"
     p.write_text(">x\n" + "ACGT" * 5000 + "\n")

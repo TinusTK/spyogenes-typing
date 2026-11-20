@@ -48,6 +48,7 @@ PRIME_GAP = 150        # emmPrime sits ~50 nt upstream of the emm hit
 EMM_WINDOW = 10000     # mga / SF markers counted within this distance of emm
 MARKER_ID = 90         # short markers: >90% identity counts (guide p4: new variant)
 GENE_ID = 90           # superantigen, resistance and pilin genes: minimum identity
+NEAR_ID = 75           # ... and the floor for saying "something is there" instead
 GENE_COV = 0.6         # ... and minimum share of the gene covered
 EDGE = 3               # a hit this close to a contig end is cut by the edge
 SPECIES_LOCI = 6       # MLST loci at >= --minid needed to pass the species check
@@ -388,6 +389,34 @@ def gene_regions(hits, minid=GENE_ID, mincov=GENE_COV):
             if r.best.pid >= minid and (r.best.cov >= mincov or r.best.edge)]
 
 
+def near_misses(hits, minid=GENE_ID, mincov=GENE_COV, floor=NEAR_ID):
+    """Places where a gene is clearly present but too far from any known
+    allele to be called: identity between floor and minid, or a short piece
+    of one. Reported so the user knows the tool left something out, instead
+    of a silent absence. Only hits BELOW the calling limit appear here; a
+    hit that was called is in its own column already."""
+    out = []
+    for r in regions(hits):
+        b = r.best
+        if b.pid >= minid and (b.cov >= mincov or b.edge):
+            continue                      # called, not a near miss
+        if b.pid < floor or b.cov < 0.5:
+            continue                      # too little to say anything about
+        out.append(b)
+    return out
+
+
+def near_text(kind, hits):
+    """One warning line for the near misses of one gene set."""
+    if not hits:
+        return []
+    items = ", ".join(f"{h.locus} {h.pid:.1f}% id / {100 * h.cov:.0f}% of the gene"
+                      for h in sorted(hits, key=lambda h: -h.pid)[:6])
+    more = f" and {len(hits) - 6} more" if len(hits) > 6 else ""
+    return [f"{kind} not called, nearest known allele under {GENE_ID:g}% identity "
+            f"(a new variant, or a disrupted gene): {items}{more}"]
+
+
 def gene_label(h):
     """'ermB(1)' exact, 'ermB(~1)' full length with differences, 'ermB(1?)' partial."""
     if h.exact:
@@ -686,18 +715,24 @@ def type_m1(seqs, emm, db):
 # --------------------------------------------------------------------------
 
 def type_superantigens(long_hits):
+    sag = [h for h in long_hits if h.scheme == SAG_SCHEME]
     genes = {}
-    for g in gene_regions([h for h in long_hits if h.scheme == SAG_SCHEME]):
+    for g in gene_regions(sag):
         b = g.best
         name = b.locus if b.cov >= 0.95 else f"{b.locus}(partial)"
         if b.locus not in genes or "(" in genes[b.locus]:
             genes[b.locus] = name
-    return [genes[k] for k in sorted(genes, key=str.lower)]
+    called = set(genes)
+    near = [h for h in near_misses(sag) if h.locus not in called]
+    return [genes[k] for k in sorted(genes, key=str.lower)], near_text("superantigen", near)
 
 
 def type_resistance(long_hits):
-    return [gene_label(g.best) for g in gene_regions(
-        [h for h in long_hits if h.scheme == RES_SCHEME])]
+    res = [h for h in long_hits if h.scheme == RES_SCHEME]
+    calls = [gene_label(g.best) for g in gene_regions(res)]
+    called = {g.best.locus for g in gene_regions(res)}
+    near = [h for h in near_misses(res) if h.locus not in called]
+    return calls, near_text("resistance gene", near)
 
 
 def type_fct(long_hits, short_hits, db):
@@ -778,13 +813,13 @@ def type_genome(path, label, db, o, tmp):
     emm = type_emm(long_hits, short_hits, db, o)
     st, code, mlst_st, good = type_mlst(long_hits, db, o)
     m1, m1_warn = type_m1(seqs, emm, db)
-    sags = type_superantigens(long_hits)
-    res = type_resistance(long_hits)
+    sags, sag_warn = type_superantigens(long_hits)
+    res, res_warn = type_resistance(long_hits)
     fct, fct_warn = type_fct(long_hits, short_hits, db)
     n = len(db.mlst_loci)
     species = ("S. pyogenes" if good >= SPECIES_LOCI
                else f"not S. pyogenes? ({good}/{n} MLST loci)")
-    warnings = emm.warnings + m1_warn + fct_warn
+    warnings = emm.warnings + m1_warn + fct_warn + sag_warn + res_warn
     if good < SPECIES_LOCI:
         warnings.insert(0, f"only {good} of {n} S. pyogenes MLST loci found at "
                            f">= {o.minid:g}% identity: check the species")

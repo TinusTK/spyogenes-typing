@@ -73,6 +73,13 @@ def read_tsv(path):
         return list(csv.DictReader(fh, delimiter="\t"))
 
 
+def read_tsv_comments(path):
+    """Like read_tsv, for a table that starts with '#' comment lines."""
+    with open(path) as fh:
+        return list(csv.DictReader((l for l in fh if not l.startswith("#")),
+                                   delimiter="\t"))
+
+
 def ours(row, field, how):
     """The part of our report that answers one expected field."""
     v = (row.get(field) or "").strip()
@@ -294,6 +301,69 @@ def main(argv=None):
     for row in head:
         lines.append("| " + " | ".join((row[c] or "").replace("|", "\\|")
                                        for c in cols) + " |")
+
+    # ---------------------------------------------------- form coverage
+    cov_path = os.path.join(a.out, "coverage.tsv")
+    sweep_path = os.path.join(a.out, "sweep_500_genomes.tsv")
+    if os.path.exists(cov_path):
+        cov = read_tsv_comments(cov_path)
+        files = [os.path.join(a.out, "coverage_genomes", r["genome"]) for r in cov]
+        got_cov = {}
+        if all(os.path.exists(f) for f in files):
+            cres = os.path.join(a.out, "results_coverage.tsv")
+            subprocess.run([sys.executable, os.path.join(ROOT, "tool",
+                                                         "spyogenes_typing.py"),
+                            "--db", a.db, "--outfile", cres, "--threads", "4",
+                            *files], check=False)
+            got_cov = {r["Sample"]: r for r in read_tsv(cres)}
+        lines += [
+            "## Form coverage (not agreement)", "",
+            "PubMLST records an FCT-region form for only 134 of its isolates, "
+            "**none of which has contigs**, and it holds a single FCT-9 isolate "
+            "with no assembly. So for some forms there is no curated value "
+            "anywhere to compare against. The genomes below, found by typing 500 "
+            "complete NCBI genomes, instead show that the rule engine reaches "
+            "the form and that the loci it saw match that form's definition. "
+            "**These are not counted in the agreement figure above**, because "
+            "there is nothing to agree with.", "",
+            "| Genome | emm | Form called | Pilin type | Why it is evidence |",
+            "|---|---|---|---|---|"]
+        for r in cov:
+            g = got_cov.get(r["genome"].replace(".fasta.gz", ""), {})
+            called = g.get("FCT type", "(not run)")
+            ok = "✓" if called.startswith(r["form"]) else "**differs**"
+            lines.append(f"| `{r['accession']}` | {r['emm']} | {called} {ok} | "
+                         f"{r['pilin_type']} | {r['what it shows']} |")
+        lines += [""]
+    if os.path.exists(sweep_path):
+        rows_s = read_tsv(sweep_path)
+        forms = {}
+        pilins = set()
+        for r in rows_s:
+            f = (r["FCT type"] or "-").split(" ")[0]
+            forms[f] = forms.get(f, 0) + 1
+            if "(" in (r["FCT type"] or ""):
+                pilins.add(r["FCT type"].split("(")[1].rstrip(")"))
+        lines += [
+            "### What 500 complete genomes look like", "",
+            f"Every complete *S. pyogenes* genome in NCBI that the search "
+            f"returned ({len(rows_s)} of 776) was typed in one run, as a check "
+            f"that the tool does not fall over and to see the spread of forms. "
+            f"It found **{len(pilins)} distinct pilin types**. Full table: "
+            f"[sweep_500_genomes.tsv](sweep_500_genomes.tsv).", "",
+            "| Form | Genomes |", "|---|---|"]
+        for f in sorted(forms, key=lambda x: -forms[x]):
+            lines.append(f"| {f} | {forms[f]} |")
+        lines += ["",
+                  "FCT-9 is 17% of these genomes but only 1 of PubMLST's 134 "
+                  "curated FCT isolates. That curated set is old and uneven (it "
+                  "still uses the retired FCT-7 and FCT-8 labels and has no "
+                  "FCT-3/4 or FCT-10), so the difference is in what has been "
+                  "curated, not in the calls: every FCT-9 genome checked has "
+                  "rofA and pilB9 as exact matches and no pilA at all. FCT-10 "
+                  "did not appear in this set, and FCT-3/4 cannot: it is what "
+                  "the tool answers when the regulator is missing, which the "
+                  "test suite covers by masking rofA.", ""]
 
     lines += ["", "## Genomes", "",
               "Listed in [expected.tsv](expected.tsv) with the PubMLST isolate each "
