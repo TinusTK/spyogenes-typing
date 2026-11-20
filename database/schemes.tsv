@@ -1,0 +1,9 @@
+# PubMLST schemes downloaded by scripts/update_database.py (edit by hand)
+# scheme	source	api	description
+mlst	pubmlst	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/1	MLST
+emm	pubmlst	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/4	Emm typing
+resistance	pubmlst	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/5	Resistance
+fct_pila	pubmlst	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/2	FCT-pilA
+fct_pilb	pubmlst	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/3	FCT-pilB
+fct_pill	pubmlst	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/7	FCT-pilL
+fct_other	pubmlst	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/6	FCT-other
