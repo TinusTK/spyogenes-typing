@@ -1,0 +1,23 @@
+sample	genome	accession	pubmlst_isolate_id	pubmlst_isolate_name	emm_type	emm_subtype	emm_cluster	ST	emm_pattern_predicted	FCT_region	pilin_type	source
+MGAS5005	MGAS5005.fasta.gz	NC_007297.2	2538	MGAS5005	1	emm1.0	A-C3	28	A-C	FCT-2		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS6180	MGAS6180.fasta.gz	NC_007296.2	2545	MGAS6180	28	emm28.4	E4	52	E	FCT-4		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+Alab49	Alab49.fasta.gz	CP003068.1	140	ALAB49	53	emm53.0	D4	11	D	FCT-3		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+SF370	SF370.fasta.gz	NC_002737.2	9	SF370	1	emm1.6	A-C3	28	A-C	FCT-2		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS10394	MGAS10394.fasta.gz	NC_006086.1	2537	MGAS10394	6	emm6.4	clade_Y_M6	382	A-C	FCT-1		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+Manfredo	Manfredo.fasta.gz	NC_009332.1	64	Manfredo	5	emm5.0	clade_Y_M5	99	A-C	FCT-3		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+SSI-1	SSI-1.fasta.gz	NC_004606.1	2541	SSI-1	3	emm3.1	A-C5	15	A-C	FCT-3		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS8232	MGAS8232.fasta.gz	NC_003485.1	2542	MGAS8232	18	emm18.19	clade_Y_M18	42	A-C	FCT-3		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS315	MGAS315.fasta.gz	NC_004070.1	2551	MGAS315	3	emm3.1	A-C5	15	A-C	FCT-3		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS9429	MGAS9429.fasta.gz	NC_008021.1	2543	MGAS9429	12	emm12.0	A-C4	36	A-C	FCT-4		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS15252	MGAS15252.fasta.gz	NC_017040.1	2546	MGAS15252	59	emm59.0	E6	172	D	FCT-4		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS1882	MGAS1882.fasta.gz	NC_017053.1	2547	MGAS1882	59	emm59.0	E6	172	D	FCT-4		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+HSC5	HSC5.fasta.gz	NC_021807.1	2548	HSC5	14	emm14.3	clade_Y_M14	680	A-C	FCT-4		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS10750	MGAS10750.fasta.gz	NC_008024.1	3901	MGAS10750	4	emm4.0	E1		E	FCT-5		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+MGAS10270	MGAS10270.fasta.gz	NC_008022.1	2550	MGAS10270	2	emm2.0	E4	55	E	FCT-6		complete genome from NCBI; expected values from the PubMLST isolate record of the same strain
+i4078	i4078.fasta.gz		4078	20GB001055	22			1235				draft assembly and expected values from the same PubMLST isolate record
+i4115	i4115.fasta.gz		4115	21GB000350	44	emm44.2		1279				draft assembly and expected values from the same PubMLST isolate record
+i6424	i6424.fasta.gz		6424	23-B2-10239-1				117				draft assembly and expected values from the same PubMLST isolate record
+i6537	i6537.fasta.gz		6537	62629	11	emm11.0						draft assembly and expected values from the same PubMLST isolate record
+i6541	i6541.fasta.gz		6541	62756	53	emm53.0		1477				draft assembly and expected values from the same PubMLST isolate record
+i6549	i6549.fasta.gz		6549	63641	18	emm18.21		1482				draft assembly and expected values from the same PubMLST isolate record
+i7422	i7422.fasta.gz		7422	128E23	75		E-6	1778				draft assembly and expected values from the same PubMLST isolate record

@@ -1,8 +1,8 @@
-scheme	source	loci	alleles	profiles	last_updated	restricted	description	api
-emm	pubmlst	10	2985	0		True	Emm typing	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/4
-fct_other	pubmlst	3	56	0		True	FCT-other	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/6
-fct_pila	pubmlst	5	276	0		True	FCT-pilA	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/2
-fct_pilb	pubmlst	7	225	0		True	FCT-pilB	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/3
-fct_pill	pubmlst	6	156	0		True	FCT-pilL	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/7
-mlst	pubmlst	7	1262	1521	2026-10-08	True	MLST	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/1
-resistance	pubmlst	13	113	0		True	Resistance	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/5
+scheme	source	loci	alleles	profiles	last_updated	restricted	flags	description	api
+emm	pubmlst	10	2985	0		True	in development	Emm typing	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/4
+fct_other	pubmlst	3	56	0		True	experimental,in development	FCT-other	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/6
+fct_pila	pubmlst	5	276	0		True	experimental,in development	FCT-pilA	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/2
+fct_pilb	pubmlst	7	225	0		True	experimental,in development	FCT-pilB	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/3
+fct_pill	pubmlst	6	156	0		True	experimental,in development	FCT-pilL	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/7
+mlst	pubmlst	7	1262	1521	2026-10-08	True		MLST	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/1
+resistance	pubmlst	13	113	0		True	in development	Resistance	https://rest.pubmlst.org/db/pubmlst_spyogenes_seqdef/schemes/5

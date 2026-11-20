@@ -1,23 +1,99 @@
 # spyogenes-typing
 
-Typing of *Streptococcus pyogenes* (group A *Streptococcus*, GAS) from
-assembled genomes, using PubMLST's data and PubMLST's own typing rules:
+I built this tool for public health and epidemiology use, to provide rapid,
+reproducible typing of *Streptococcus pyogenes* (group A *Streptococcus*,
+GAS) from assembled genomes, against PubMLST's database and following
+PubMLST's own typing rules:
 
-- **emm** type and subtype, emm-like genes (emmL) and *S. dysgalactiae*
-  emm genes (emmCG)
-- **emm cluster** (Sanderson-Smith 2014) and **emm pattern** (A-E)
-- **MLST** (7 loci, ST)
-- **M1 lineage** for emm1: M1UK, M1intermediate, M1DK or M1global
+- **emm** type and subtype (e.g. `emm1.0`), plus emm-like genes (**emmL**)
+  and *S. dysgalactiae* emm genes (**emmCG**)
+- **emm cluster** (Sanderson-Smith 2014) and **emm pattern** (A-E, REA)
+- **7-gene MLST** sequence type (ST) and the allele of every locus
+- **M1UK lineage** for emm1: M1UK, M1intermediate, M1DK or M1global
 - **superantigen** genes and **resistance** genes
-- **FCT-region** form and pilin type (T-antigen pilus region)
+- **FCT-region** form and **pilin type** (the T-antigen pilus region)
+- a species check, per-row **warnings** and the **database version** on
+  every row
+- one tabular report per run, ready for Excel and downstream reporting
 
-One row per genome, in one table. Runs on the command line, in Galaxy and
-in GWM.
+Database: [PubMLST *S. pyogenes*](https://pubmlst.org/organisms/streptococcus-pyogenes),
+emm data curated by the CDC. Refreshed through a reviewed pull request.
+
+> **Prefer no command line?**
+> [Genomics Workflow Microbials (GWM)](https://github.com/TinusTK/GenomicsWorkflowMicrobials)
+> is a free desktop app for Windows, Mac and Linux with a point-and-click
+> interface. *S. pyogenes* typing is built in: choose a folder of reads or
+> assemblies, press Run and read the results as tables. Nothing to install
+> by hand, and no server needed: it all runs locally on your computer.
+
+## How settled each part is
+
+PubMLST marks several of its *S. pyogenes* schemes as still developing, and
+this tool reports them anyway, so it is worth knowing which results rest on
+a settled scheme and which on a provisional one. These flags are read from
+PubMLST itself, not assigned here, and the database updater reports it when
+they change:
+
+| What it reports | PubMLST scheme | PubMLST flags |
+|---|---|---|
+| ST, alleles, MLST status, species check | MLST (1) | **established** (no flags) |
+| emm, emmL, emmCG, emm pattern markers | Emm typing (4) | *in development* |
+| Resistance genes | Resistance (5) | *in development* |
+| FCT type (regulator plus pilA / pilB) | FCT-pilA (2), FCT-pilB (3), FCT-other (6) | *experimental*, *in development* |
+| pilL alleles (in the `--hits` file only; they do not change the FCT call) | FCT-pilL (7) | *experimental*, *in development* |
+
+Four more columns come from outside PubMLST's schemes: **emm cluster** and
+the predicted **emm pattern** are curated by hand from PubMLST's typing
+guide, **superantigens** from NCBI RefSeq genomes, and the **M1UK** SNPs
+from Lynskey et al. 2019.
+
+PubMLST also warns that its partial typing loci "may not be 100%
+inclusive", so a locus that does not match is a possible new variant rather
+than an error. The tool says so in the Warnings column instead of guessing.
+
+## Output
+
+One row per genome, one table per run, so several genomes share one header:
 
 ```bash
-spyogenes-typing genome.fasta > typing.tsv
+spyogenes-typing MGAS5005.fasta MGAS6180.fasta Alab49.fasta > typing.tsv
 spyogenes-typing *.fasta.gz --outfile typing.tsv
 ```
+
+| Sample | emm | emm status | emmL | emmCG | emm cluster | emm pattern | ST | MLST status | M1 lineage | FCT type |
+|---|---|---|---|---|---|---|---|---|---|---|
+| MGAS5005 | emm1.0 | PERFECT | - | - | A-C3 | A | 28 | PERFECT | M1global (0 M1UK SNPs) | FCT-2 (pil001) |
+| MGAS6180 | emm28.0 | PERFECT | emmL203.4 (97.2%) | - | E4 | E | 52 | PERFECT | - | FCT-4 (pil028) |
+| Alab49 | emm53.0 | PERFECT | emmL134.2;emmL156.1 (98.9%) | - | D4 | D | 11 | PERFECT | - | FCT-3 (pil033) |
+
+Those are the headline columns; the full report has 23. `emmL` and `emmCG`
+are always there, `-` when the genome has none: an emm-like gene is listed
+as emmL and never reported as the emm type, which is what the emmPrime rule
+below settles. Here is one whole row, laid out downwards (MGAS6180):
+
+| Column | Value |
+|---|---|
+| Sample | `MGAS6180` |
+| Species check | `S. pyogenes` |
+| emm | `emm28.0` |
+| emm status | `PERFECT` |
+| emmL | `emmL203.4 (97.2%)` |
+| emmCG | `-` |
+| emm cluster | `E4` |
+| emm pattern | `E` |
+| ST | `52` |
+| ALLELE1..7 | `gki(11)` `gtr(6)` `murI(14)` `mutS(5)` `recP(9)` `xpt(17)` `yqiL(19)` |
+| MLST status | `PERFECT` |
+| M1 lineage | `-` |
+| Superantigens | `smeZ;speC;speG;speJ;speK` |
+| Resistance genes | `-` |
+| FCT type | `FCT-4 (pil028)` |
+| Warnings | `-` |
+| Database | `PubMLST_2026-11-20` |
+
+Empty values are `-`. MGAS6180 and Alab49 are the worked examples in
+PubMLST's own typing guide, and the tool reproduces both. What every column
+means is in [The report](#the-report) below.
 
 ## Install
 
@@ -113,6 +189,45 @@ order: `--db`, `$SPYOGENES_TYPING_DB`, your own, the bundled one.
 
 Rebuild the bundled database: `python scripts/update_database.py --db database`
 (`--references` also rebuilds the NCBI parts).
+
+## Validation
+
+Every result is checked against PubMLST's own isolate records, and the whole
+record is in [validation/](validation) so you can see it rather than take my
+word for it: [VALIDATION.md](validation/VALIDATION.md) holds the comparison
+and the tool's full output for every genome, [expected.tsv](validation/expected.tsv)
+holds what PubMLST records for each strain and which isolate it came from,
+and [genomes/](validation/genomes) holds the genomes themselves with their
+checksums.
+
+**22 genomes** against database `PubMLST_2026-11-20`: 15 complete genomes
+from NCBI (including PubMLST's own worked examples MGAS6180 and Alab49) and
+7 draft assemblies from PubMLST. **102 of 106 recorded values agree, with
+nothing unexplained:**
+
+| What | Agree | Compared |
+|---|---|---|
+| emm type | 21 | 21 |
+| emm subtype | 18 | 19 |
+| ST | 18 | 20 |
+| emm cluster | 16 | 16 |
+| emm pattern | 14 | 15 |
+| FCT-region form | **15** | **15** |
+
+The four differences were each traced to the source data, not to the typing:
+two are PubMLST isolate records that disagree with the deposited genome by a
+single base (HSC5's ST comes down to one base in *gtr*; MGAS6180's subtype to
+one base in *emm*), one is a measured pattern where PubMLST only records a
+predicted one (MGAS8232 genuinely has no SF3 or SF4 beside its emm), and one
+is an ST assigned after the free data cut-off. Each is set out in full in the
+record.
+
+PubMLST's public isolate records hold no pilin type at all, so that column
+cannot be checked against them; it is checked against the worked examples in
+the typing guide instead (MGAS6180 = pil028, isolate 6424 = pil088).
+
+Re-run it yourself with `python scripts/validate.py`, which exits non-zero if
+any difference is not one of the explained ones.
 
 ## Licence
 

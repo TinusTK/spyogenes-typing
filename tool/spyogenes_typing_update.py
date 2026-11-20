@@ -19,7 +19,11 @@ What goes in the database folder
   blast/             spyogenes (loci of 60 bp and longer, plus the
                      superantigen genes) and spyogenes_short (the short
                      signature loci) BLAST indexes
-  manifest.tsv       one row per scheme (counts, last_updated, restricted)
+  manifest.tsv       one row per scheme (counts, last_updated, restricted,
+                     and PubMLST's own flags: "experimental", "in development")
+  guide.tsv          the typing guide PubMLST publishes the curated rules in,
+                     with its Last-Modified and ETag, so a new edition of the
+                     guide is noticed (the tables are then re-checked by hand)
   VERSION.txt        one line, e.g. PubMLST_2026-11-20
 
 Data access
@@ -56,6 +60,11 @@ BLAST_LONG = "spyogenes"
 BLAST_SHORT = "spyogenes_short"
 SAG_SCHEME = "superantigens"    # scheme name used for the superantigen genes in BLAST titles
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+# The curated tables in tables/ are typed by hand from this guide. It is never
+# parsed here; only its Last-Modified / ETag are watched, so a new edition is
+# reported and the tables can be re-checked.
+GUIDE_URL = ("https://dev.pubmlst.org/static/organisms/streptococcus-pyogenes/"
+             "Guide_emm_pilin_genotypes_Feb2024.pdf")
 
 
 # --------------------------------------------------------------------------
@@ -156,6 +165,75 @@ def limited(info):
     return "restricted" in message or "2024-12-31" in message
 
 
+def scheme_flags(info):
+    """PubMLST's own maturity flags for a scheme, e.g. "experimental" or
+    "in development", as one comma-separated string ("" for an established
+    scheme). Used to tell the user when a scheme stops being provisional."""
+    flags = info.get("flags") or []
+    if isinstance(flags, str):
+        flags = [flags]
+    return ",".join(sorted(str(f) for f in flags))
+
+
+def read_guide_state(db):
+    """guide.tsv -> dict, or {} when it has not been written yet."""
+    path = os.path.join(db, "guide.tsv")
+    if not os.path.exists(path):
+        return {}
+    with open(path) as fh:
+        rows = [r for r in csv.DictReader(fh, delimiter="\t")]
+    return rows[0] if rows else {}
+
+
+def check_guide(url=GUIDE_URL):
+    """Ask the server for the guide's Last-Modified and ETag (HEAD, no
+    download). Returns a dict; on any failure the reason is in "error" so a
+    network problem never fails the whole update."""
+    state = {"url": url, "last_modified": "", "etag": "", "error": ""}
+    try:
+        req = urllib.request.Request(url, method="HEAD",
+                                     headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            state["last_modified"] = resp.headers.get("Last-Modified", "") or ""
+            state["etag"] = (resp.headers.get("ETag", "") or "").strip('"')
+    except Exception as e:  # noqa: BLE001
+        state["error"] = str(e)[:150]
+    return state
+
+
+def write_guide_state(db, state):
+    with open(os.path.join(db, "guide.tsv"), "w", newline="") as fh:
+        w = csv.DictWriter(fh, ["url", "last_modified", "etag", "checked"],
+                           delimiter="\t", lineterminator="\n",
+                           extrasaction="ignore")
+        w.writeheader()
+        w.writerow({**state, "checked": dt.date.today().isoformat()})
+
+
+def guide_changed(old, new):
+    """True when the guide now differs from the one the tables were typed
+    from. An unreachable guide (or a first run) is not a change."""
+    if new.get("error") or not old:
+        return False
+    if new.get("url") != old.get("url"):
+        return True
+    return ((new.get("etag") or "") != (old.get("etag") or "")
+            or (new.get("last_modified") or "") != (old.get("last_modified") or ""))
+
+
+def flag_changes(old_man, man):
+    """[(scheme, old flags, new flags)] where PubMLST's flags moved."""
+    out = []
+    for m in man:
+        old = old_man.get(m["scheme"])
+        if old is None or "flags" not in old:
+            continue          # new scheme, or a manifest from before flags
+        if (old.get("flags") or "") != (m.get("flags") or ""):
+            out.append((m["scheme"], old.get("flags") or "none",
+                        m.get("flags") or "none"))
+    return out
+
+
 def fetch_scheme(row, outdir):
     """Download one scheme into outdir/<scheme>/. Returns manifest dict.
 
@@ -205,7 +283,8 @@ def fetch_scheme(row, outdir):
 
     return dict(scheme=name, source=row["source"], loci=len(kept), alleles=n_alleles,
                 profiles=n_prof, last_updated=info.get("last_updated") or "",
-                restricted=limited(info), description=row["description"], api=url)
+                restricted=limited(info), flags=scheme_flags(info),
+                description=row["description"], api=url)
 
 
 # --------------------------------------------------------------------------
@@ -410,8 +489,23 @@ def compare(old_pub, new_pub):
     return sorted(new - old), sorted(old - new), changed
 
 
-def write_summary(path, version, man, added, removed, changed, failed, refs):
+def write_summary(path, version, man, added, removed, changed, failed, refs,
+                  flagmoves=(), guide=None, guide_moved=False):
     lines = [f"# Database update {version}", ""]
+    if guide_moved:
+        lines += ["> **PubMLST's typing guide has changed.** The curated tables in "
+                  "`database/tables/` (emm clusters, emm patterns, pilin nt80 "
+                  "clusters, pilin types, FCT forms) are typed by hand from that "
+                  "guide, so the rules may have moved. Read the new guide and "
+                  "re-check those tables before merging.", "",
+                  f"- Guide: {(guide or {}).get('url', '')}",
+                  f"- Last modified: {(guide or {}).get('last_modified', '') or 'unknown'}",
+                  ""]
+    if flagmoves:
+        lines += ["> **PubMLST changed how settled a scheme is.** Update the "
+                  "\"How settled each part is\" table in the README.", ""]
+        lines += [f"- `{n}`: {a} -> {b}" for n, a, b in flagmoves]
+        lines += [""]
     if any(m["restricted"] for m in man):
         lines += ["PubMLST data is the **standard, freely available** set: alleles "
                   "and profiles submitted up to **31 Dec 2024** (no authentication).", ""]
@@ -422,7 +516,14 @@ def write_summary(path, version, man, added, removed, changed, failed, refs):
               f"- Added: {', '.join(added) or 'none'}",
               f"- Removed: {', '.join(removed) or 'none'}",
               f"- Changed: {len(changed)}" + (f" ({', '.join(changed)})" if changed else ""),
-              f"- References (superantigens, M1 SNPs): {refs}"]
+              f"- References (superantigens, M1 SNPs): {refs}",
+              "- PubMLST flags: "
+              + (", ".join(f"{m['scheme']} ({m.get('flags') or 'established'})"
+                           for m in man) or "none")]
+    if guide and not guide_moved:
+        lines += [f"- Typing guide: unchanged ({guide.get('last_modified') or 'not checked'})"
+                  if not guide.get("error")
+                  else f"- Typing guide: could not be checked ({guide['error']})"]
     if failed:
         lines += ["", "**Failed (kept the previous copy):**", ""]
         lines += [f"- {n}: {e}" for n, e in failed]
@@ -436,6 +537,7 @@ def old_row(old_man, name):
     for k in ("loci", "alleles", "profiles"):
         m[k] = int(m[k])
     m["restricted"] = m.get("restricted") == "True"
+    m.setdefault("flags", "")
     return m
 
 
@@ -510,11 +612,33 @@ def main(argv=None):
         else:
             shutil.copytree(old_ref, new_ref)
 
+        # PubMLST's maturity flags, and the guide the curated tables come from
+        man.sort(key=lambda m: m["scheme"])
+        flagmoves = flag_changes(old_man, man)
+        old_guide = read_guide_state(db)
+        guide = check_guide()
+        moved = guide_changed(old_guide, guide)
+        # First run after flag/guide watching was added: the old manifest has no
+        # flags column and there is no guide.tsv yet, so write them once.
+        bootstrap = (not old_guide and not guide.get("error")) or any(
+            "flags" not in (old_man.get(m["scheme"]) or {"flags": ""}) for m in man)
+        if bootstrap:
+            print("  writing PubMLST flags and the guide state for the first time",
+                  file=sys.stderr)
+        if guide.get("error"):
+            print(f"  typing guide: could not be checked ({guide['error']})", file=sys.stderr)
+        elif moved:
+            print("  typing guide: CHANGED since the tables were typed "
+                  f"({old_guide.get('last_modified', '?')} -> {guide['last_modified']})",
+                  file=sys.stderr)
+        for name, a, b in flagmoves:
+            print(f"  {name}: PubMLST flags {a} -> {b}", file=sys.stderr)
+
         added, removed, changed = compare(old_pub, new_pub)
         ref_changed = (not os.path.isdir(old_ref)
                        or folder_digest(old_ref) != folder_digest(new_ref))
-        if not (added or removed or changed or ref_changed) \
-                and os.path.isdir(os.path.join(db, "blast")):
+        if not (added or removed or changed or ref_changed or flagmoves or moved
+                or bootstrap) and os.path.isdir(os.path.join(db, "blast")):
             print("No changes.", file=sys.stderr)
             return NO_CHANGES
 
@@ -523,10 +647,12 @@ def main(argv=None):
         version = (args.version_label or f"PubMLST_{dt.date.today().isoformat()}") \
             if pub_changed else read_version(db)
 
-        man.sort(key=lambda m: m["scheme"])
+        # keep the guide state: the new reading, or the old one when the
+        # server could not be reached (never lose what the tables were typed from)
+        write_guide_state(tmp, guide if not guide.get("error") else (old_guide or guide))
         with open(os.path.join(tmp, "manifest.tsv"), "w", newline="") as fh:
             cols = ["scheme", "source", "loci", "alleles", "profiles",
-                    "last_updated", "restricted", "description", "api"]
+                    "last_updated", "restricted", "flags", "description", "api"]
             w = csv.DictWriter(fh, cols, delimiter="\t", lineterminator="\n",
                                extrasaction="ignore")
             w.writeheader()
@@ -535,7 +661,8 @@ def main(argv=None):
             fh.write(version + "\n")
 
         # swap in (schemes.tsv and tables/ are never touched)
-        for part in ("pubmlst", "references", "blast", "manifest.tsv", "VERSION.txt"):
+        for part in ("pubmlst", "references", "blast", "manifest.tsv",
+                     "VERSION.txt", "guide.tsv"):
             dst = os.path.join(db, part)
             if os.path.isdir(dst):
                 shutil.rmtree(dst)
@@ -543,10 +670,12 @@ def main(argv=None):
                 os.remove(dst)
             shutil.move(os.path.join(tmp, part), dst)
         if args.summary:
-            write_summary(args.summary, version, man, added, removed, changed, failed, refs)
+            write_summary(args.summary, version, man, added, removed, changed,
+                          failed, refs, flagmoves, guide, moved)
         print(f"Database {version}: {len(man)} schemes, "
               f"+{len(added)} -{len(removed)} ~{len(changed)}, references {refs.split(' ')[0]}, "
-              f"{len(failed)} failed", file=sys.stderr)
+              f"{len(failed)} failed, {len(flagmoves)} flag change(s), "
+              f"guide {'CHANGED' if moved else 'unchanged'}", file=sys.stderr)
         return 0
     finally:
         shutil.rmtree(tmp, ignore_errors=True)

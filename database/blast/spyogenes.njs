@@ -6,7 +6,7 @@
   "description": "spyogenes",
   "number-of-letters": 2568574,
   "number-of-sequences": 4966,
-  "last-updated": "2026-11-20T18:21:00",
+  "last-updated": "2026-11-20T22:44:00",
   "number-of-volumes": 1,
   "bytes-total": 1354177,
   "bytes-to-cache": 705876,

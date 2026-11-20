@@ -1,0 +1,23 @@
+file	source	sequences	length_bp	sha256	description
+MGAS5005.fasta.gz	NCBI NC_007297.2	1	1838562	57ebeac430bd21d93d52873dfca99651ca58779537e7b22c1e55f17bd7f8516f	NC_007297.2 Streptococcus pyogenes MGAS5005, complete sequence
+MGAS6180.fasta.gz	NCBI NC_007296.2	1	1897578	48926242e67ff3cc53d22d95ef4a7810caf8659d66bfa81d532085a5b3af2e77	NC_007296.2 Streptococcus pyogenes MGAS6180, complete sequence
+Alab49.fasta.gz	NCBI CP003068.1	1	1827308	b493d99f58edd77a54fda4b9348850c5cc553a2e35c1e73ef649a9541d2aa5ef	CP003068.1 Streptococcus pyogenes Alab49, complete genome
+SF370.fasta.gz	NCBI NC_002737.2	1	1852433	04754391eb10be503bf982652cf9c9aa72bc7c659beb75ac519440af1873e310	NC_002737.2 Streptococcus pyogenes M1 GAS, complete sequence
+MGAS10394.fasta.gz	NCBI NC_006086.1	1	1899877	c6c02587b7f28f361c0f4f2c82bfe34cdae4e29bf6e27608f6a15d6676fb8611	NC_006086.1 Streptococcus pyogenes MGAS10394, complete sequence
+Manfredo.fasta.gz	NCBI NC_009332.1	1	1841271	9eae8301adf2816ec096c5c0fc35db01189a643caad85541ad298bc554bc2cf1	NC_009332.1 Streptococcus pyogenes str. Manfredo, complete sequence
+SSI-1.fasta.gz	NCBI NC_004606.1	1	1894275	1a1f81c791ca27b61a2068136debffeb86dbc68a7d8e00df92b9ca64a585c095	NC_004606.1 Streptococcus pyogenes SSI-1, complete sequence
+MGAS8232.fasta.gz	NCBI NC_003485.1	1	1895017	7d900451a236b8951f4018099c83b170f98241e336cbcb90eb8686a4d93e2b9b	NC_003485.1 Streptococcus pyogenes MGAS8232, complete sequence
+MGAS315.fasta.gz	NCBI NC_004070.1	1	1900521	dd651ca0d26551d7cd571c94de20ea9f88c7539badb088e778863ea8a927bed9	NC_004070.1 Streptococcus pyogenes MGAS315, complete sequence
+MGAS9429.fasta.gz	NCBI NC_008021.1	1	1836467	fd0e78082cf152f8987b68c74060e668a68facb2882834db8a76e352a22dc9ad	NC_008021.1 Streptococcus pyogenes MGAS9429, complete sequence
+MGAS15252.fasta.gz	NCBI NC_017040.1	1	1750832	0e45b792f76495e70cc7d3ce281363d806c70c3fc4de08b9d9c7bd35e6d3993e	NC_017040.1 Streptococcus pyogenes MGAS15252, complete sequence
+MGAS1882.fasta.gz	NCBI NC_017053.1	1	1781029	d0f5dcbd2c0f0e4d1c1fb216b32ad951c7f88840f82c620490940931117ab281	NC_017053.1 Streptococcus pyogenes MGAS1882, complete sequence
+HSC5.fasta.gz	NCBI NC_021807.1	1	1818351	3e7c2ed17a14ff571783ceb0a360be00dabddd46333533b557fd350d54d41acc	NC_021807.1 Streptococcus pyogenes HSC5, complete sequence
+MGAS10750.fasta.gz	NCBI NC_008024.1	1	1937111	625eeb0fe9e6d715f510d00ae6e0c2f4965e4931dfe0000e8b08703fb3e25e8a	NC_008024.1 Streptococcus pyogenes MGAS10750, complete sequence
+MGAS10270.fasta.gz	NCBI NC_008022.1	1	1928252	5a2d9749d46c2d9290659de2a02a9a8c2a557b2e610407d14f2144f5824b1457	NC_008022.1 Streptococcus pyogenes MGAS10270, complete sequence
+i4078.fasta.gz	PubMLST isolate 4078	29	1828607	81e80d26f06d638d5bca318f8ffd3fe0a4aed36f87d9dc9dc0b9e395da7310fa	20GB001055 (draft assembly, 29 contigs)
+i4115.fasta.gz	PubMLST isolate 4115	29	1829493	3f783c7c10289bf91dfbac0f09d432fc7deb3f1400359cb2cc0f078d4c4f5bc5	21GB000350 (draft assembly, 29 contigs)
+i6424.fasta.gz	PubMLST isolate 6424	48	1760598	1801a907c26fee828d511102e78dc87f979c1ae69ce3c7d843ed8273b6d5f6cc	23-B2-10239-1 (draft assembly, 48 contigs)
+i6537.fasta.gz	PubMLST isolate 6537	77	1757817	680e783466bdf0b35730e936e1ef0eb514cd949d3aca48052654318b997be83b	62629 (draft assembly, 77 contigs)
+i6541.fasta.gz	PubMLST isolate 6541	84	1759927	397d4dea907899cfeec8bbfd967dd875bc512152f62af0c3ee668ca37253ce35	62756 (draft assembly, 84 contigs)
+i6549.fasta.gz	PubMLST isolate 6549	23	1691586	7903d77f45a3ed431b9dc5ba0b0f76ada38eb7dcaec72a68d56a658c92a087df	63641 (draft assembly, 23 contigs)
+i7422.fasta.gz	PubMLST isolate 7422	25	1724495	b367d0f061c1bbb39b1958c9dcbca6d42e3e0cd77895441bb817272d1cd1c5e8	128E23 (draft assembly, 25 contigs)
