@@ -272,11 +272,29 @@ the terms of their own sources, listed below.
 ## Sources and credits
 
 - [PubMLST *S. pyogenes*](https://pubmlst.org/organisms/streptococcus-pyogenes)
-  typing databases (Jolley et al. 2018, Wellcome Open Res 3:124), emm data
-  curated by the CDC. Please cite PubMLST.
-- emm clusters: Sanderson-Smith et al. 2014, J Infect Dis 210:1325-38.
-- emm patterns and pilin types: Bessen et al. 2024, mBio.
-- M1UK SNPs: Lynskey et al. 2019, Lancet Infect Dis 19:1209-18; positions
-  as in github.com/boasvdp/assembly_snptyper (MIT licence).
-- Superantigen gene sequences: NCBI RefSeq genomes MGAS5005, SF370,
-  MGAS315, MGAS8232, MGAS10394, MGAS10270 and L29565.1 (ssa).
+  typing databases ([Jolley et al. 2018](https://doi.org/10.12688/wellcomeopenres.14826.1),
+  Wellcome Open Res 3:124), emm data curated by the
+  [CDC *Streptococcus* laboratory](https://www.cdc.gov/strep-lab/php/group-a-strep/index.html).
+  Please cite PubMLST.
+- The typing rules: PubMLST's
+  [Rules-based assignment of emm and pilin genotypes for group A streptococci](https://dev.pubmlst.org/static/organisms/streptococcus-pyogenes/Guide_emm_pilin_genotypes_Feb2024.pdf)
+  (Feb 2024), which the curated tables in `database/tables/` are typed from.
+- emm clusters: [Sanderson-Smith et al. 2014](https://doi.org/10.1093/infdis/jiu260),
+  J Infect Dis 210:1325-38.
+- emm patterns and pilin types: [Bessen et al. 2024](https://doi.org/10.1128/mbio.00693-24),
+  mBio 15:e00693-24.
+- M1UK SNPs: [Lynskey et al. 2019](https://doi.org/10.1016/S1473-3099%2819%2930446-3),
+  Lancet Infect Dis 19:1209-18; positions as in
+  [github.com/boasvdp/assembly_snptyper](https://github.com/boasvdp/assembly_snptyper)
+  (MIT licence).
+- Superantigen gene sequences, from the annotated CDS of these NCBI RefSeq
+  genomes: [MGAS5005](https://www.ncbi.nlm.nih.gov/nuccore/NC_007297.2),
+  [SF370](https://www.ncbi.nlm.nih.gov/nuccore/NC_002737.2),
+  [MGAS315](https://www.ncbi.nlm.nih.gov/nuccore/NC_004070.1),
+  [MGAS8232](https://www.ncbi.nlm.nih.gov/nuccore/NC_003485.1),
+  [MGAS10394](https://www.ncbi.nlm.nih.gov/nuccore/NC_006086.1),
+  [MGAS10270](https://www.ncbi.nlm.nih.gov/nuccore/NC_008022.1),
+  [MGAS10750](https://www.ncbi.nlm.nih.gov/nuccore/NC_008024.1),
+  [MGAS15252](https://www.ncbi.nlm.nih.gov/nuccore/NC_017040.1) and
+  [MGAS6180](https://www.ncbi.nlm.nih.gov/nuccore/NC_007296.2), plus
+  [L29565.1](https://www.ncbi.nlm.nih.gov/nuccore/L29565.1) for *ssa*.
