@@ -84,7 +84,9 @@ def ours(row, field, how):
     """The part of our report that answers one expected field."""
     v = (row.get(field) or "").strip()
     if how == "emm_type":
-        return ",".join(t.replace("emm", "").split(".")[0] for t in v.split(",")) if v != "-" else "-"
+        # '~emm63.2' (closest allele, not exact) still names type 63
+        return ",".join(t.lstrip("~").replace("emm", "").split(".")[0]
+                        for t in v.split(",")) if v != "-" else "-"
     if how == "emm_subtype":
         return v
     if how == "cluster":
@@ -258,7 +260,7 @@ def main(argv=None):
         "emm and which FCT form the loci make. It is not independent evidence "
         "that those assignments are biologically right.", "",
         "**Not checked here at all:** the superantigen, resistance-gene, M1UK "
-        "lineage, species-check and warning columns, because PubMLST's isolate "
+        "lineage and warning columns, because PubMLST's isolate "
         "records hold nothing to compare them with. M1UK is covered by the test "
         "suite instead, which writes the published SNPs into a genome and expects "
         "M1UK back.", "",

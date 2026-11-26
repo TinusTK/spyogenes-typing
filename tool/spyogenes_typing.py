@@ -51,7 +51,7 @@ GENE_ID = 90           # superantigen, resistance and pilin genes: minimum ident
 NEAR_ID = 75           # ... and the floor for saying "something is there" instead
 GENE_COV = 0.6         # ... and minimum share of the gene covered
 EDGE = 3               # a hit this close to a contig end is cut by the edge
-SPECIES_LOCI = 6       # MLST loci at >= --minid needed to pass the species check
+MLST_LOCI_WARN = 6     # MLST loci at >= --minid below which a warning is given
 
 # emm pattern from the marker hits next to emm (guide p4): marker -> count;
 # every other marker must be absent
@@ -459,11 +459,11 @@ def tied_types(region):
 
 def other_label(h, minid):
     """emm-like and emmCG hits away from the emm locus: emmL134.2,
-    'emmL134.2 (98.3%)' when not exact, emm hits as 'emm59.0'."""
+    '~emmL134.2 (98.3%)' when not exact (closest allele), emm hits as 'emm59.0'."""
     name = h.allele if h.locus == "emmCG" else f"{h.locus}{h.allele}"
     if h.exact:
         return name
-    return f"{name} ({h.pid:.1f}%{', partial' if h.cov < 0.95 else ''})"
+    return f"~{name} ({h.pid:.1f}%{', partial' if h.cov < 0.95 else ''})"
 
 
 def near_prime(region, primes):
@@ -531,7 +531,8 @@ def type_emm(long_hits, short_hits, db, o):
         else:
             labels = []
             for g, c in named:
-                lab = emm_label(g.best)
+                # '~' marks the closest allele of a call that is not exact
+                lab = ("~" if c == NOVEL else "") + emm_label(g.best)
                 if lab not in labels:
                     labels.append(lab)
             r.region = named[0][0]
@@ -871,16 +872,14 @@ def type_genome(path, label, db, o, tmp):
     res, res_warn = type_resistance(long_hits)
     fct, fct_warn = type_fct(long_hits, short_hits, db)
     n = len(db.mlst_loci)
-    species = ("S. pyogenes" if good >= SPECIES_LOCI
-               else f"not S. pyogenes? ({good}/{n} MLST loci)")
     warnings = (emm.warnings + mlst_warn + m1_warn + fct_warn
                 + sag_warn + res_warn)
-    if good < SPECIES_LOCI:
+    if good < MLST_LOCI_WARN:
+        # counts MLST genes only: not a species identification
         warnings.insert(0, f"only {good} of {n} S. pyogenes MLST loci found at "
-                           f">= {o.minid:g}% identity: check the species")
+                           f">= {o.minid:g}% identity")
     row = {
         "Sample": label,
-        "Species check": species,
         "emm": emm.emm,
         "emm status": emm.status,
         "emmL": join(emm.emmL),
@@ -925,7 +924,7 @@ def detail_rows(label, names, long_hits, short_hits, o):
 # Output
 # --------------------------------------------------------------------------
 
-HEAD = ["Sample", "Species check", "emm", "emm status", "emmL", "emmCG",
+HEAD = ["Sample", "emm", "emm status", "emmL", "emmCG",
         "emm cluster", "emm pattern", "ST"]
 TAIL = ["MLST status", "M1 lineage", "Superantigens", "Resistance genes",
         "FCT type", "Warnings", "Database"]

@@ -12,8 +12,7 @@ PubMLST's own typing rules:
 - **M1UK lineage** for emm1: M1UK, M1intermediate, M1DK or M1global
 - **superantigen** genes and **resistance** genes
 - **FCT-region** form and **pilin type** (the T-antigen pilus region)
-- a species check, per-row **warnings** and the **database version** on
-  every row
+- per-row **warnings** and the **database version** on every row
 - one tabular report per run, ready for Excel and downstream reporting
 
 Database: [PubMLST *S. pyogenes*](#database), emm data curated by the CDC.
@@ -38,7 +37,7 @@ they change:
 
 | What it reports | PubMLST scheme | PubMLST flags |
 |---|---|---|
-| ST, alleles, MLST status, species check | MLST (1) | **established** (no flags) |
+| ST, alleles, MLST status | MLST (1) | **established** (no flags) |
 | emm, emmL, emmCG, emm pattern markers | Emm typing (4) | *in development* |
 | Resistance genes | Resistance (5) | *in development* |
 | FCT type (regulator plus pilA / pilB) | FCT-pilA (2), FCT-pilB (3), FCT-other (6) | *experimental*, *in development* |
@@ -65,10 +64,10 @@ spyogenes-typing *.fasta.gz --outfile typing.tsv
 | Sample | emm | emm status | emmL | emmCG | emm cluster | emm pattern | ST | MLST status | M1 lineage | FCT type | Warnings |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | MGAS5005 | emm1.0 | PERFECT | - | - | A-C3 | A | 28 | PERFECT | M1global (0 M1UK SNPs) | FCT-2 (pil001) | - |
-| MGAS6180 | emm28.0 | PERFECT | emmL203.4 (97.2%) | - | E4 | E | 52 | PERFECT | - | FCT-4 (pil028) | - |
-| Alab49 | emm53.0 | PERFECT | emmL134.2;emmL156.1 (98.9%) | - | D4 | D | 11 | PERFECT | - | FCT-3 (pil033) | - |
+| MGAS6180 | emm28.0 | PERFECT | ~emmL203.4 (97.2%) | - | E4 | E | 52 | PERFECT | - | FCT-4 (pil028) | - |
+| Alab49 | emm53.0 | PERFECT | emmL134.2;~emmL156.1 (98.9%) | - | D4 | D | 11 | PERFECT | - | FCT-3 (pil033) | - |
 
-Those are the headline columns; the full report has 23. `emmL` and `emmCG`
+Those are the headline columns; the full report has 22. `emmL` and `emmCG`
 are always there, `-` when the genome has none: an emm-like gene is listed
 as emmL and never reported as the emm type, which is what the emmPrime rule
 below settles.
@@ -83,7 +82,8 @@ the column it is about, and several are joined with `; `. Real examples:
 | MGAS8232 | `emm pattern markers mga-2;SF1 fit no pattern A-E: REA; predicted for this emm type: A-C/D` |
 | MGAS10394 | `superantigen not called, nearest known allele under 90% identity (a new variant, or a disrupted gene): speI 87.4% id / 59% of the gene, speH 84.3% id / 98% of the gene` |
 | a genome with a locus missing | `MLST MISSING: gki(-) not found` |
-| a new emm subtype | `emm NOVEL: 1 SNP from emm63.2 (99.4%); cluster and pattern from emm63` |
+| a genome with most MLST genes missing | `only 3 of 7 S. pyogenes MLST loci found at >= 95% identity` |
+| a new emm subtype (emm column `~emm63.2`) | `emm NOVEL: 1 SNP from emm63.2 (99.4%); cluster and pattern from emm63` |
 | a genome cut through emm | `emm PARTIAL: emm cut by a contig end (54% of the allele), subtype unknown` |
 
 Here is one whole row, laid out downwards (MGAS6180):
@@ -91,10 +91,9 @@ Here is one whole row, laid out downwards (MGAS6180):
 | Column | Value |
 |---|---|
 | Sample | `MGAS6180` |
-| Species check | `S. pyogenes` |
 | emm | `emm28.0` |
 | emm status | `PERFECT` |
-| emmL | `emmL203.4 (97.2%)` |
+| emmL | `~emmL203.4 (97.2%)` |
 | emmCG | `-` |
 | emm cluster | `E4` |
 | emm pattern | `E` |
@@ -136,11 +135,10 @@ name in `--fofn`). Empty values are `-`.
 
 | Column | What it is | Meaning |
 |---|---|---|
-| Species check | `S. pyogenes` when at least 6 of the 7 MLST loci are found at 95% identity or more. Otherwise `not S. pyogenes? (n/7 MLST loci)`: the genome may be another species (e.g. *S. dysgalactiae*) or a poor assembly. | Whether the rest of the row can be trusted. If it is not `S. pyogenes`, read the other columns with care: they were typed against an *S. pyogenes* database. |
-| emm | The emm allele: type and subtype together, e.g. `emm1.0` (type 1, subtype 1.0). Taken from the 180 bp 5' region PubMLST holds, curated by the CDC. | The main label for GAS in surveillance and outbreak work: isolates with the same emm type may be linked, and emm types are tracked over time and place. |
-| emm status | `PERFECT` exact allele; `NOVEL` no exact allele, the nearest one (≥95% identity) is shown (a new subtype, see Warnings); `PARTIAL` emm cut by a contig end, only the type is shown (e.g. `emm1`); `MULTICOPY` the same allele at more than one emm locus; `MIXED` different emm alleles at more than one emm locus (mixed culture or contamination?); `MISSING` no emm found. | How sure the emm call is. `PERFECT` can be reported as is; `NOVEL` and `PARTIAL` need a look; `MIXED` suggests the sample is not a single strain. |
-| emmL | emm-like genes (e.g. *mrp*, *enn*) found away from the emm locus, as `emmL134.2`; the identity is added when not exact. | Part of the strain's gene layout, not its type. Shown so an emm-like gene is never taken for the emm type. |
-| emmCG | *S. dysgalactiae* (stG / stC) emm genes found away from the emm locus. | Often a sign of genes taken up from *S. dysgalactiae*; worth noting, and with a failed species check it may mean the genome is not *S. pyogenes*. |
+| emm | The emm allele: type and subtype together, e.g. `emm1.0` (type 1, subtype 1.0). `~emm63.2` when there is no exact match: the closest allele, with differences (emm status `NOVEL`, details in Warnings). Taken from the 180 bp 5' region PubMLST holds, curated by the CDC. | The main label for GAS in surveillance and outbreak work: isolates with the same emm type may be linked, and emm types are tracked over time and place. |
+| emm status | `PERFECT` exact allele; `NOVEL` no exact allele, the nearest one (≥95% identity) is shown with a `~`, e.g. `~emm63.2` (a new subtype, see Warnings); `PARTIAL` emm cut by a contig end, only the type is shown (e.g. `emm1`); `MULTICOPY` the same allele at more than one emm locus; `MIXED` different emm alleles at more than one emm locus (mixed culture or contamination?); `MISSING` no emm found. | How sure the emm call is. `PERFECT` can be reported as is; `NOVEL` and `PARTIAL` need a look; `MIXED` suggests the sample is not a single strain. |
+| emmL | emm-like genes (e.g. *mrp*, *enn*) found away from the emm locus, as `emmL134.2`; when not exact, the closest allele with a `~` and its identity, e.g. `~emmL203.4 (97.2%)`. | Part of the strain's gene layout, not its type. Shown so an emm-like gene is never taken for the emm type. |
+| emmCG | *S. dysgalactiae* (stG / stC) emm genes found away from the emm locus, as `STG653.0`; `~STG653.0 (98.1%)` when not exact. | Often a sign of genes taken up from *S. dysgalactiae*; worth noting, and together with the warning that most MLST genes were not found it may mean the genome is not *S. pyogenes*. |
 | emm cluster | The emm cluster of the emm type (Sanderson-Smith et al. 2014), as PubMLST writes it: E1-E6 (clade X), D1-D5 and A-C1 to A-C5 (clade Y), singletons `clade_X_M164`, `clade_Y_M6`, outliers `outlier_M55`. Types in one cluster share M-protein binding properties: used for vaccine design (cross-protection) and to group types in epidemiology. | Groups emm types whose M proteins behave alike, so it says which other types an isolate may resemble for immunity and vaccine coverage. |
 | emm pattern | How the emm and emm-like genes are laid out (Bessen; PubMLST). `A`, `B`, `C` (throat specialists), `D` (skin specialists), `E` (generalists), `REA` (rearranged). Measured from marker hits next to emm (below). When the markers cannot all be seen (a short contig), the pattern known for the emm type is shown as `A-C (predicted)`. | Hints at where the strain tends to cause infection: throat (A-C), skin (D) or both (E). |
 | ST | MLST sequence type. | The strain's genetic background, from the 7 MLST genes. Isolates with the same emm type but different STs are probably not closely related. |
@@ -150,7 +148,7 @@ name in `--fofn`). Empty values are `-`.
 | Superantigens | Superantigen genes found (≥90% identity): speA, speC, speG, speH, speI, speJ, speK, speL, speM, smeZ, ssa. `(partial)` when cut by a contig end. | The toxin genes the strain carries. Superantigens are linked to scarlet fever and streptococcal toxic shock; speA in particular to invasive disease. |
 | Resistance genes | PubMLST resistance alleles, e.g. `ermB(1)`; `~1` with differences, `1?` partial. | Predicted antibiotic resistance, e.g. erm genes for macrolides and clindamycin, tet genes for tetracycline. A prediction from the genome, not a lab susceptibility result. |
 | FCT type | FCT-region form and pilin type, e.g. `FCT-4 (pil028)`. The form comes from the regulator (rofA or nra) and the pilA / pilB loci found; the pilin type from the pilA and pilB nt80 clusters of exact alleles. | The pilus the strain makes to stick to host tissue. The pilin is the T antigen of the older serological T-typing, so the pilin type can be set roughly against T-typing data. |
-| Warnings | Anything to check, from any column above, separated by `; `. Covers emm (NOVEL, PARTIAL, MIXED, an emmL at the emm locus, no emmPrime), emm cluster and pattern (none listed for the type, markers that fit no pattern, measured against predicted), MLST (which locus is missing, mixed, or not exact), M1 lineage (SNP sites not found), superantigens and resistance genes (present but under the 90% calling limit), FCT (pilin not exact, no pilin type listed, hits that fit no form) and the species check. `-` means nothing needs checking. | The column to read first: `-` means the row can be used as it is; anything else names the column to check and why. |
+| Warnings | Anything to check, from any column above, separated by `; `. Covers emm (NOVEL, PARTIAL, MIXED, an emmL at the emm locus, no emmPrime), emm cluster and pattern (none listed for the type, markers that fit no pattern, measured against predicted), MLST (which locus is missing, mixed, or not exact), M1 lineage (SNP sites not found), superantigens and resistance genes (present but under the 90% calling limit), FCT (pilin not exact, no pilin type listed, hits that fit no form) and the MLST genes: when 5 or fewer of the 7 *S. pyogenes* MLST genes are found at 95% identity or more, it says `only n of 7 S. pyogenes MLST loci found at >= 95% identity` (another species such as *S. dysgalactiae*, or a poor assembly; this counts MLST genes only and is not a species identification: a close relative can still pass). `-` means nothing needs checking. | The column to read first: `-` means the row can be used as it is; anything else names the column to check and why. |
 | Database | The database version, e.g. `PubMLST_2026-11-20`. | Which data the calls came from, so results can be compared and repeated later. |
 
 ### How the calls are made
