@@ -1,7 +1,7 @@
 <tool id="spyogenes_typing" name="Spyogenes Typing" version="@TOOL_VERSION@+galaxy0" profile="22.05">
     <description>emm, emm cluster and pattern, MLST, M1UK, superantigens, resistance and FCT of Streptococcus pyogenes assemblies</description>
     <macros>
-        <token name="@TOOL_VERSION@">1.0.1</token>
+        <token name="@TOOL_VERSION@">1.0.2</token>
     </macros>
     <requirements>
         <requirement type="package" version="2.16.0">blast</requirement>
@@ -70,8 +70,8 @@ ${f}	${f.element_identifier}
             <param name="input" value="MGAS6180.fasta"/>
             <output name="report">
                 <assert_contents>
-                    <has_line line="Sample&#9;Species check&#9;emm&#9;emm status&#9;emmL&#9;emmCG&#9;emm cluster&#9;emm pattern&#9;ST&#9;ALLELE1&#9;ALLELE2&#9;ALLELE3&#9;ALLELE4&#9;ALLELE5&#9;ALLELE6&#9;ALLELE7&#9;MLST status&#9;M1 lineage&#9;Superantigens&#9;Resistance genes&#9;FCT type&#9;Warnings&#9;Database"/>
-                    <has_line_matching expression="^MGAS6180\tS\. pyogenes\temm28\.0\tPERFECT\t[^\t]+\t-\tE4\tE\t52\tgki\(11\)\tgtr\(6\)\tmurI\(14\)\tmutS\(5\)\trecP\(9\)\txpt\(17\)\tyqiL\(19\)\tPERFECT\t-\tsmeZ;speC;speG;speJ;speK\t-\tFCT-4 \(pil028\)\t-\tPubMLST_.*$"/>
+                    <has_line line="Sample&#9;emm&#9;emm status&#9;emmL&#9;emmCG&#9;emm cluster&#9;emm pattern&#9;ST&#9;ALLELE1&#9;ALLELE2&#9;ALLELE3&#9;ALLELE4&#9;ALLELE5&#9;ALLELE6&#9;ALLELE7&#9;MLST status&#9;M1 lineage&#9;Superantigens&#9;Resistance genes&#9;FCT type&#9;Warnings&#9;Database"/>
+                    <has_line_matching expression="^MGAS6180\temm28\.0\tPERFECT\t~emmL203\.4 \(97\.2%\)\t-\tE4\tE\t52\tgki\(11\)\tgtr\(6\)\tmurI\(14\)\tmutS\(5\)\trecP\(9\)\txpt\(17\)\tyqiL\(19\)\tPERFECT\t-\tsmeZ;speC;speG;speJ;speK\t-\tFCT-4 \(pil028\)\t-\tPubMLST_.*$"/>
                 </assert_contents>
             </output>
         </test>
@@ -88,7 +88,7 @@ ${f}	${f.element_identifier}
                 <assert_contents>
                     <has_n_lines n="3"/>
                     <has_text text="gki(11);gtr(6);murI(14);mutS(5);recP(9);xpt(17);yqiL(19)"/>
-                    <has_line_matching expression="^Alab49\tS\. pyogenes\temm53\.0\tPERFECT\temmL134\.2;[^\t]*\t-\tD4\tD\t11\t.*\tFCT-3 \(pil033\)\t.*$"/>
+                    <has_line_matching expression="^Alab49\temm53\.0\tPERFECT\temmL134\.2;~emmL156\.1 \(98\.9%\)\t-\tD4\tD\t11\t.*\tFCT-3 \(pil033\)\t.*$"/>
                 </assert_contents>
             </output>
             <output name="json_out">
@@ -102,13 +102,13 @@ ${f}	${f.element_identifier}
                 </assert_contents>
             </output>
         </test>
-        <!-- A sequence with none of the loci: fails the species check. -->
+        <!-- A sequence with none of the loci: the MLST-loci warning comes first. -->
         <test expect_num_outputs="1">
             <param name="input" value="no_loci.fasta"/>
             <param name="allele_layout" value="none"/>
             <output name="report">
                 <assert_contents>
-                    <has_line_matching expression="^no_loci\tnot S\. pyogenes\? \(0/7 MLST loci\)\t-\tMISSING\t-\t-\t-\t-\t-\tNONE\t-\t-\t-\t-\t.*$"/>
+                    <has_line_matching expression="^no_loci\t-\tMISSING\t-\t-\t-\t-\t-\tNONE\t-\t-\t-\t-\tonly 0 of 7 S\. pyogenes MLST loci found at &gt;= 95% identity.*$"/>
                 </assert_contents>
             </output>
         </test>
@@ -132,13 +132,13 @@ assembly:
 **Columns**
 
 =================  ==========================================================
-Species check      ``S. pyogenes`` when 6 or more of the 7 MLST loci are found
-                   at 95% identity or more; otherwise check the species
 emm                emm allele at the emm locus (the hit just after the emmPrime
-                   marker); ``emm1`` without subtype when cut by a contig end
-emm status         PERFECT, NOVEL (nearest allele shown), PARTIAL (contig end),
+                   marker); ``~emm63.2`` closest allele when not exact;
+                   ``emm1`` without subtype when cut by a contig end
+emm status         PERFECT, NOVEL (nearest allele shown with ``~``), PARTIAL (contig end),
                    MULTICOPY, MIXED, MISSING
-emmL / emmCG       emm-like and stG/stC emm genes elsewhere in the genome
+emmL / emmCG       emm-like and stG/stC emm genes elsewhere in the genome;
+                   ``~emmL203.4 (97.2%)`` closest allele when not exact
 emm cluster        E1-E6, D1-D5, A-C1 to A-C5, clade_X/Y singletons, outliers
 emm pattern        measured from the mga/SF markers next to emm (A, B, C throat;
                    D skin; E generalist; REA rearranged), or ``(predicted)``
@@ -150,7 +150,9 @@ Superantigens      speA, speC, speG, speH, speI, speJ, speK, speL, speM, smeZ, s
 Resistance genes   e.g. ``ermB(1)``; ``~`` not exact, ``?`` partial
 FCT type           e.g. ``FCT-4 (pil028)``: form from rofA/nra and the pilA/pilB
                    loci, pilin type from their nt80 clusters
-Warnings           anything to check
+Warnings           anything to check; ``only n of 7 S. pyogenes MLST loci
+                   found`` when 5 or fewer are found at 95% identity or more
+                   (counts MLST genes only, not a species identification)
 Database           database version
 =================  ==========================================================
 

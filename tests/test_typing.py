@@ -114,6 +114,12 @@ def test_emm_labels():
     assert st.emm_type_of(hit(locus="emmCG", allele="STG653.0")) == "STG653"
 
 
+def test_other_labels_mark_closest_match():
+    assert st.other_label(hit(locus="emmL", allele="134.2"), 95) == "emmL134.2"
+    assert st.other_label(hit(locus="emmL", allele="134.2", nident=178), 95) == "~emmL134.2 (98.9%)"
+    assert st.other_label(hit(locus="emmCG", allele="STG653.0", nident=178), 95) == "~STG653.0 (98.9%)"
+
+
 def test_near_prime_strand_and_distance():
     emm = st.Region(hit(start=1000, end=1179, strand="minus"))
     prime = hit(locus="emmPrime", allele="2", slen=19, alen=19, nident=19,
@@ -176,7 +182,7 @@ EXPECTED = {
     "MGAS6180": {"emm": "emm28.0", "emm status": "PERFECT", "emm cluster": "E4",
                  "emm pattern": "E", "ST": "52", "M1 lineage": "-",
                  "Superantigens": "smeZ;speC;speG;speJ;speK", "FCT type": "FCT-4 (pil028)"},
-    "Alab49": {"emm": "emm53.0", "emm status": "PERFECT", "emmL": "emmL134.2;emmL156.1 (98.9%)",
+    "Alab49": {"emm": "emm53.0", "emm status": "PERFECT", "emmL": "emmL134.2;~emmL156.1 (98.9%)",
                "emm cluster": "D4", "emm pattern": "D", "ST": "11",
                "Superantigens": "smeZ;speC;speG;speL;speM", "FCT type": "FCT-3 (pil033)"},
 }
@@ -189,7 +195,8 @@ def test_reference_genomes(name):
     assert len(r) == 1
     row = r[0]
     assert row["Sample"] == f"{name}_loci"
-    assert row["Species check"] == "S. pyogenes"
+    assert "Species check" not in row
+    assert "S. pyogenes MLST loci" not in row["Warnings"]
     for k, v in EXPECTED[name].items():
         assert row[k] == v, k
     assert row["Database"] == st.db_version(DB)
@@ -249,6 +256,19 @@ def test_m1uk_and_split_emm(tmp_path):
     row = rows(run(str(sp)).stdout)[0]
     assert (row["emm"], row["emm status"], row["emmL"]) == ("emm1", "PARTIAL", "-")
     assert row["emm cluster"] == "A-C3"
+    # one changed base inside emm1: NOVEL, the closest allele marked with '~'
+    snp = []
+    for name, s in seqs:
+        p = 1683400 - int(name.split("_")[-2])
+        if 0 < p < len(s):
+            s = s[:p] + ("A" if s[p] != "A" else "C") + s[p + 1:]
+        snp.append((name, s))
+    sn = tmp_path / "snp.fa"
+    sn.write_text("".join(f">{n}\n{s}\n" for n, s in snp))
+    row = rows(run(str(sn)).stdout)[0]
+    assert row["emm status"] == "NOVEL"
+    assert row["emm"].startswith("~emm1.")
+    assert "emm NOVEL: 1 SNP from emm1." in row["Warnings"]
 
 
 @needs_blast
@@ -344,5 +364,6 @@ def test_not_spyogenes(tmp_path):
     p = tmp_path / "x.fa"
     p.write_text(">x\n" + "ACGT" * 5000 + "\n")
     row = rows(run(str(p)).stdout)[0]
-    assert row["Species check"].startswith("not S. pyogenes")
+    assert row["Warnings"].startswith("only 0 of 7 S. pyogenes MLST loci found at >= 95% identity")
+    assert "check the species" not in row["Warnings"]
     assert row["emm status"] == "MISSING" and row["MLST status"] == "NONE"
