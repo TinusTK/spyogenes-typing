@@ -29,7 +29,7 @@ import tempfile
 import zipfile
 from collections import defaultdict
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 EXE = "spyogenes-typing"
 URL = "https://github.com/TinusTK/spyogenes-typing"
 ENV_DB = "SPYOGENES_TYPING_DB"
